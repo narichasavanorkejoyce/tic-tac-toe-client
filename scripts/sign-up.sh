@@ -1,3 +1,6 @@
+#!/bin/bash
+#EMAIL=curltest1@example.email PASSWORD=pass PASSWORD_CONFIRMATION=pass sh scripts/sign-up.sh
+
 API="${API_ORIGIN:-http://localhost:4741}"
   URL_PATH="/sign-up"
   curl "${API}${URL_PATH}" \
@@ -11,3 +14,5 @@ API="${API_ORIGIN:-http://localhost:4741}"
         "password_confirmation": "'"${PASSWORD}"'"
       }
     }'
+
+    echo
