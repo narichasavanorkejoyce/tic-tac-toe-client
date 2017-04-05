@@ -42,10 +42,10 @@ const data = getFormFields(this)
 }
 
 const addHandlers = () => {
-  $('#sign-up-modal').on('submit', onSignUp)
-  $('#sign-in-modal').on('submit', onSignIn)
-  $('#sign-out-modal').on('submit', onSignOut)
-  $('#change-password-modal').on('submit', onChangePassword)
+  $('#sign-up').on('click', onSignUp)
+  $('#sign-in').on('click', onSignIn)
+  $('#sign-out').on('click', onSignOut)
+  $('#change-password').on('click', onChangePassword)
 }
 
 module.exports = {
