@@ -1,0 +1,49 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+$background-color: #4e4e4e;
+$font-color: #dfdfdf;
+$white: #fff;
+
+.nav, .navbar-brand, .container-fluid {
+  background-color: #69bfea;
+}
+#bs-example-navbar-collapse-1 {
+  background-color: #69bfea;
+}
+
+.sign-up, .sign-in, .sign-out {
+  float: left;
+}
+
+h1 {
+  text-align: center;
+  text-transform:uppercase;
+}
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.container {
+  align-items: center;
+}
+
+.box {
+  align-content: center;
+  border: 1px solid $white;
+  height: 200px;
+  width: 200px;
+}
+
+.row {
+  align-items: center;
+}
+
+.button {
+  align-content: center;
+  border: 1px solid $white;
+  height: 175px;
+  width: 175px;
+}
