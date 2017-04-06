@@ -14,10 +14,10 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
   console.log('sign in ran')
-  console.log(data)
-  const data = getFormFields(this)
+  console.log(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)

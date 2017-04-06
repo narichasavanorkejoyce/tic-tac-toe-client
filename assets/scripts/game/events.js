@@ -13,7 +13,7 @@ const ui = require('./ui')
     .catch(ui.newGameFailure)
 }
 */
-const onPlaceX = function (event) {
+const onPlacePiece = function (event) {
   event.preventDefault()
   console.log('game/events/onPlaceX ran')
   const data = getFormFields(this)

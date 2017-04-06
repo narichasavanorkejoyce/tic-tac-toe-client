@@ -1,6 +1,40 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: bottom;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+td {
+  width: 15%;
+  height: 15%;
+  border: 0px solid #546363;
+  border-right-width: 6px;
+  border-bottom-width: 6px;
+  text-align: center;
+  font-size: 80px;
+  cursor: crosshair;
+  position: relative;
+}
+
+td:nth-child(3) {
+  border-right-width: 0;
+}
+
+tr:last-child td {
+  border-bottom-width: 0;
+}
+
+
+
 $background-color: #4e4e4e;
 $font-color: 69bfea;
 $white: #fff;

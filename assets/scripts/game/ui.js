@@ -11,11 +11,14 @@ const newGameFailure = (error) => {
   console.error(error)
 }
 
-const signInSuccess = (data) => {
- console.log(‘SignIn success ran. Data is: ‘, data)
- $(‘.sign-out-button’).show()
- $(‘#signInModal’).modal(‘toggle’)
- store.user = data.user
+const placeXSuccess = (data) => {
+  console.log('placeX success ran.  data is : ', data)
+  store.user = data.user
+  $('#place-X-modal').modal('hide')
+}
+
+const placeXFailure = (error) => {
+  console.error('signIn failure ran.  error is: ', error)
 }
 
 const placeYSuccess = (data) => {

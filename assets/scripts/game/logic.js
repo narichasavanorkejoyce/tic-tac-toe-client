@@ -1,17 +1,18 @@
 'use strict'
 
-const gameArray = [ {}, {}, {}, {}, {}, {}, {}, {}, {} ]
+const gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 let player_x = {
-  email,
-  password,
-  no_games
+  player1email='email',
+  password1='password',
+  no_games=2
 }
 
-let player_o = {
-  email,
-  password,
-  no_games
+let player_x = {
+  player2email='email',
+  password2='password',
+  no_games=5
+}
 
 let gameStats = {
   totalGames,
@@ -30,7 +31,7 @@ createGame(player_x, password) {
   let symbol = X
 }
 
-
+resetGame(){}
 
 
 
