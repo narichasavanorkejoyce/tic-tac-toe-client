@@ -56,6 +56,7 @@ const addHandlers = () => {
   $('#place-X').on('click', onPlaceX)
   $('#place-Y').on('click', onPlaceX)
   $('#clear-game').on('click', onClearGame)
+  $('#boardpiece1').on('click', () => { onClickBoard() })
 }
 
 module.exports = {
