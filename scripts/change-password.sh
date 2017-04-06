@@ -1,5 +1,5 @@
 #!/bin/bash
-#ID=15 OLDPW=pass NEWPW=password TOKEN=BAhJIiUxMGQyYjgyNTRiNjExNmUyMTQ3Zjk1MzA0ZWY5YWY2MAY6BkVG--aa3a4fb7406394ec35ec879450fc2a4c96b5188e sh scripts/change-password-json.sh
+#ID=13 OLDPW=pass NEWPW=passwd TOKEN=$2a$10$5.DoqrSsKGThA1/Zj1ACmOSBZ/qNKsnaxh2Y3mu24NTgHXsfMV5Pe sh scripts/change-password.sh
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/change-password/$ID"
 curl --include --request PATCH "${API}${URL_PATH}" \
