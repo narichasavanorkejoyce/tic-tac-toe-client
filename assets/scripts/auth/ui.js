@@ -2,56 +2,54 @@
 
 const store = require('../store')
 
-const signUpSuccess = (data) => {
+const newGameSuccess = (data) => {
   console.log(data)
-  $('#sign-up-modal').modal('hide')
+  $('#new-game-modal').modal('hide')
 }
 
-const signUpFailure = (error) => {
+const newGameFailure = (error) => {
   console.error(error)
 }
 
-const signInSuccess = (data) => {
-  console.log('signIn success ran.  data is : ', data)
+const placeXSuccess = (data) => {
+  console.log('placeX success ran.  data is : ', data)
   store.user = data.user
-  $('#sign-in-modal').modal('hide')
+  $('#place-X-modal').modal('hide')
 }
 
-const signInFailure = (error) => {
+const placeXFailure = (error) => {
   console.error('signIn failure ran.  error is: ', error)
 }
 
-const signOutSuccess = () => {
-  console.log('sign-out success ran.  and nothing was returned')
-  console.log('store is: ', store)
-  store.user = null
-  console.log('store is: ', store)
-  $('#sign-out-modal').modal('hide')
+const placeYSuccess = (data) => {
+  console.log('placeY success ran.  data is : ', data)
+  store.game = data.game
+  $('#place-Y-modal').modal('hide')
 }
 
-const signOutFailure = (error) => {
-  console.error('sign-out failure ran.  error is: ', error)
+const placeYFailure = (error) => {
+  console.error('placeY failure ran.  error is: ', error)
 }
 
-const changePasswordSuccess = () => {
-  console.log('change-password success ran.  and nothing was returned')
+const clearGameSuccess = () => {
+  console.log('clearGame success ran.  and nothing was returned')
   console.log('store is: ', store)
-  store.user = null
+  store.game = null
   console.log('store is: ', store)
-  $('#change-password-modal').modal('hide')
+  $('#clear-game-modal').modal('hide')
 }
 
-const changePasswordFailure = (error) => {
-  console.error('change-password failure ran.  error is: ', error)
+const clearGameFailure = (error) => {
+  console.error('clear-game failure ran.  error is: ', error)
 }
 
 module.exports = {
-  signUpSuccess,
-  signUpFailure,
-  signInSuccess,
-  signInFailure,
-  signOutSuccess,
-  signOutFailure,
-  changePasswordSuccess,
-  changePasswordFailure
+  newGameSuccess,
+  newGameFailure,
+  placeXSuccess,
+  placeXFailure,
+  placeXSuccess,
+  placeXFailure,
+  clearGameSuccess,
+  clearGameFailure
 }
