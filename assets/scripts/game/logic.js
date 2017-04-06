@@ -1,15 +1,15 @@
 'use strict'
 
-const gameArray = []
+const gameArray = [ {}, {}, {}, {}, {}, {}, {}, {}, {} ]
 
 let player_x = {
-  username1,
+  email,
   password,
   no_games
 }
 
 let player_o = {
-  username2,
+  email,
   password,
   no_games
 
@@ -18,26 +18,26 @@ let gameStats = {
   totalWins
 }
 
-{
-  "game": {
-    "id": 1,
-    "cells": ["","","","","","","","",""],
-    "over":false,
-    "player_x": {
-      "id": 1,
-      "email": "and@and.com"
-      },
-    "player_o": {
-      "id": 3,
-      "email":
-      "dna@dna.com"
-    }
-  }
+let game = {
+  id,
+  cells,
+  over,
+  Player_x,
+  Player_y,
 }
+
+createGame(player_x, password) {
+  let symbol = X
+}
+
+
+
+
 
 module.exports = {
   gameArray,
   player_x,
   player_o,
-  gameStats
+  gameStats,
+  game
 }

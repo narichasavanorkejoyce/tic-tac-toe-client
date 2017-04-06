@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const newGame = (data) => {
+/*const newGame = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/game-new',
     method: 'POST',
@@ -40,7 +40,7 @@ const clearGame = () => {
     // data: data is same as just plain data
   })
 }
-
+*/
 module.exports = {
   newGame,
   placeX,

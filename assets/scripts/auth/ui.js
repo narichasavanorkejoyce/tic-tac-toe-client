@@ -48,8 +48,8 @@ module.exports = {
   newGameFailure,
   placeXSuccess,
   placeXFailure,
-  placeXSuccess,
-  placeXFailure,
+  placeYSuccess,
+  placeYFailure,
   clearGameSuccess,
   clearGameFailure
 }
