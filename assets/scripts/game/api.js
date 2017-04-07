@@ -2,11 +2,11 @@
 
 const config = require('../config')
 const store = require('../store')
-const logi = require('/logic')
+//const logic = require('/logic')
 
 const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiOrig + '/games/' + store.game,
     method: 'POST',
     data
     // data: data is same as just plain data
@@ -15,14 +15,14 @@ const createGame = (data) => {
 
 const showGame = function (id) {
   return $.ajax({
-    url: app.host + '/games/' + id,
+    url: app.host + '/games/' + store.game.id,
     method: 'GET',
   })
 }
 
 const updateGame = () => {
   return $.ajax({
-    url: config.apiOrigin + '/game/' + store.game.id, + store.game.value
+    url: config.apiOrigin + '/game/' + store.game.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.game.token

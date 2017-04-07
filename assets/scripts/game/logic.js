@@ -1,19 +1,58 @@
 'use strict'
 
+//const gameEvents = require("./events")
+
 //this is an empty gameBoard
-const gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+const gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "] //empty game board
 
-let isPlayer = 'X' //X if it's X's turn, O if it's not X's turn
-
-let play = function(playerIs){
-  let play = playerIs
-  if (playerIs === ‘X’) {
-      $('boardpiece[this.id]').text(playerIs)
-       playerIs = ‘O’
-        $(‘#boardpiece[index]’).text(playerIs)
-     } else playerIs = ‘X’
-     return play
+const IsPlayer = {
+  id,
+  piece,
+  email
 }
+//}"X" //X if it's X's turn, O if it's not X's turn
+//
+/*const play = function(isPlayer){
+  console.log(isPlayer)
+  let play = isPlayer
+  console.log(play)
+  if (play === "X") {
+    boardpiece = play //replace w display on click: $('#boardpiece[this.id]').text(playerIs)
+    console.log(boardpiece)
+    isPlayer = "0"
+    console.log(play)
+  }
+  else {
+      boardpiece = "O"
+      isPlayer = "X"
+        //$(‘#boardpiece[this.id]’).text(playerIs)
+     }
+     return boardpiece
+}
+*/
+
+const makeMove = function(isPlayer) { //function accepts isPlayer (X or O as arg
+  if(isPlayer === "X") {  //if isPlayer passed is an X (goes first)
+    boardpiece = "X"
+    console.log(boardpiece)
+    isPlayer = "O"
+//    $('#0').on('click', text(isPlayer)
+  } else {
+    isPlayer = "O"
+    boardpiece = "O"
+    console.log(boardpiece)
+    isPlayer("X")
+  }
+    return boardpiece
+}
+
+/*
+if (playerIs === ‘X’) {
+       playerIs = ‘O’
+       $(‘.playerDiv’).text(playerIs)
+     } else playerIs = ‘X’
+     */
+
 
 let gameStats = {
   totalGames,
@@ -51,8 +90,7 @@ let game = {
   id,
   cells,
   over,
-  Player_x,
-  Player_y,
+  isPlayer,
 }
 
 
