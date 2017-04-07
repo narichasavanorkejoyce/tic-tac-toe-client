@@ -5,10 +5,10 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onCreateGame = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  console.log('i clicked new game')
-  api.createGame(data)
+  console.log('i clicked new game ')
+  const data = '{}'
+  api.createGame(this.data)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
 }

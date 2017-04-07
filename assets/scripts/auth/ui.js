@@ -6,7 +6,7 @@ const signUpSuccess = (data) => {
   console.log(data)
   console.log('sign up success ran.  data is : ', data)
   $('#sign-up-modal').modal('hide')
-  store.data=user.data
+  store.user=data.user
 }
 
 const signUpFailure = (error) => {

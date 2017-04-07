@@ -7,3 +7,12 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Authorization: Token token=$TOKEN" \
+  --data '{
+  "game": {
+    "cell": {
+      "index": 0,
+      "value": "x"
+    },
+    "over": false
+  }
+}'
