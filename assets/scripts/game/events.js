@@ -8,9 +8,9 @@ const ui = require('./ui')
 const onCreateGame = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  api.newGame(data)
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
+  api.createGame(data)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
 }
 
 const onPlayerIs = function (event) {
@@ -18,21 +18,12 @@ const onPlayerIs = function (event) {
   console.log('onPlayerIs ran')
   const data = getFormFields(this)
   console.log(data)
-  const boardpieceId = game.id
+  const boardpieceID = game.id
+  console.log('the current player played a ' + this.player)
 
   api.onPlayerIs(data)
-    .then(ui.placeXSuccess)
-    .catch(ui.placeXFailure)
-}
-/*
-const onPlaceY = function (event) {
-  event.preventDefault()
-  console.log('game/events/onPlaceY ran')
-  console.log(data)
-  const data = getFormFields(this)
-  api.onPlaceY(data)
-    .then(ui.placeYSuccess)
-    .catch(ui.placeYFailure)
+    .then(ui.onPlayerIsSuccess)
+    .catch(ui.onPlayerIsFailure)
 }
 
 const onClearGame = function (event) {
@@ -43,28 +34,16 @@ const onClearGame = function (event) {
     .catch(ui.clearGameFailure)
 }
 
-/*const onChangePassword = function (event) {
-  event.preventDefault()
-  console.log('change password ran')
-
-const data = getFormFields(this)
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
-}
-*/
 const addHandlers = () => {
-//  ("#new-game").on('click', onNewGame)
-  //event.preventDefault();
-//  });
-  $('#new-game').on('click', onNewGame)
-  $('#place-X').on('click', onPlaceX)
-  $('#place-Y').on('click', onPlaceX)
-  $('#clear-game').on('click', onClearGame)
-  $('#boardpiece').on('click', sonPlaceX)
+
+  $('#createGame').on('click', onCreateGame),
+  $('#boardpiece').on('click', onPlayerIs),
+  $('#clearGame').on('click', onClearGame)
 }
 
 module.exports = {
   addHandlers,
-  onCreateGame
+  onCreateGame,
+  onPlayerIs,
+  onClearGame
 }

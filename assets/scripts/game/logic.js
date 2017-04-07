@@ -8,8 +8,9 @@ let isPlayer = 'X' //X if it's X's turn, O if it's not X's turn
 let play = function(playerIs){
   let play = playerIs
   if (playerIs === ‘X’) {
+      $('boardpiece[this.id]').text(playerIs)
        playerIs = ‘O’
-        $(‘#boardpiece’).text(playerIs)
+        $(‘#boardpiece[index]’).text(playerIs)
      } else playerIs = ‘X’
      return play
 }

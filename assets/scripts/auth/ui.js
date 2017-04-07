@@ -4,6 +4,7 @@ const store = require('../store')
 
 const signUpSuccess = (data) => {
   console.log(data)
+  console.log('sign up success ran.  data is : ', data)
   $('#sign-up-modal').modal('hide')
 }
 
