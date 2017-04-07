@@ -36,7 +36,7 @@ resetGame(){}
 
 
 module.exports = {
-  gameArray,
+  gameBoard,
   player_x,
   player_o,
   gameStats,

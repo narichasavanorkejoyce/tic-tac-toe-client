@@ -28,73 +28,6 @@
                 <a class="navbar-brand" href="#">by Lisa M. Smith</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <ul class="nav navbar-nav">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <!-- Large modal for sign-up -->
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>
-                    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <form class='sign-up' id="sign-up">
-                                    <fieldset>
-                                        <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Email username">
-                                        <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Enter Your Password">
-                                        <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm password">
-                                        <input type="submit" id="sign-up-modal" name="submit" value="Sign up!">
-                                        <p>Accessing an authenticated API.</p>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Large modal for sign-in -->
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
-                    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <form class='sign-in' id="sign-in">
-                                    <fieldset>
-                                        <input type="text" name="credentials[email]" id="sign-in-email" placeholder="Email username">
-                                        <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Enter Your Password">
-                                        <input type="submit" id="sign-in-modal" name="submit" value="Sign In!">
-                                        <p>Accessing an authenticated API.</p>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Large modal for sign-out -->
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-out-modal">Sign Out</button>
-                    <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <form class='sign-out' id="sign-out">
-                                    <fieldset>
-                                        <input type="submit" id="sign-out-modal" name="submit" value="Sign out!">
-                                        <p>Accessing an authenticated API.</p>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Large modal for change password -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
-                    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <form class='change-password' id="change-password">
-                                    <fieldset>
-                                      <input type="password" name="passwords[old]" id="change-password-old" placeholder="old Password">
-                                      <input type="password" name="passwords[new]" id="change-password-new" placeholder="new Password">
-                                      <input type="submit" name="submit" value="Change password!">
-                                      <p>Accessing an authenticated API.</p>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="Games">
                     <a href="#" class="dropdown-games" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -112,6 +45,70 @@
         <!-- /.navbar-collapse -->
         <!-- /.container-fluid -->
     </nav>
+    <!-- Large modal for sign-up -->
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-up' id="sign-up">
+                    <fieldset>
+                        <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Email username">
+                        <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Enter Your Password">
+                        <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm password">
+                        <input type="submit" id="sign-up-modal" name="submit" value="Sign up!">
+                        <p>Accessing an authenticated API.</p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for sign-in -->
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-in' id="sign-in">
+                    <fieldset>
+                        <input type="text" name="credentials[email]" id="sign-in-email" placeholder="Email username">
+                        <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Enter Your Password">
+                        <input type="submit" id="sign-in-modal" name="submit" value="Sign In!">
+                        <p>Accessing an authenticated API.</p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for sign-out -->
+    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-out-modal">Sign Out</button>
+    <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-out' id="sign-out">
+                    <fieldset>
+                        <input type="submit" id="sign-out-modal" name="submit" value="Sign out!">
+                        <p>Accessing an authenticated API.</p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for change password -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='change-password' id="change-password">
+                    <fieldset>
+                      <input type="password" name="passwords[old]" id="change-password-old" placeholder="old Password">
+                      <input type="password" name="passwords[new]" id="change-password-new" placeholder="new Password">
+                      <input type="submit" name="submit" value="Change password!">
+                      <p>Accessing an authenticated API.</p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
       <table class=‘game-board’>
        <tr>

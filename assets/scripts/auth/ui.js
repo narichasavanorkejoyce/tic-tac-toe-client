@@ -2,51 +2,63 @@
 
 const store = require('../store')
 
-const newGameSuccess = (data) => {
+const signUpSuccess = (data) => {
   console.log(data)
-  $('#new-game-modal').modal('hide')
+  $('#sign-up-modal').modal('hide')
 }
 
-const newGameFailure = (error) => {
+const signUpFailure = (error) => {
   console.error(error)
+//  $('#sign-up-modal').modal('hide')
+
 }
 
 const signInSuccess = (data) => {
- console.log(‘SignIn success ran. Data is: ‘, data)
- $(‘.sign-out-button’).show()
- $(‘#signInModal’).modal(‘toggle’)
- store.user = data.user
+  console.log('signIn success ran.  data is : ', data)
+  store.user = data.user
+  $('#sign-in-modal').modal('hide')
 }
 
-const placeYSuccess = (data) => {
-  console.log('placeY success ran.  data is : ', data)
-  store.game = data.game
-  $('#place-Y-modal').modal('hide')
+const signInFailure = (error) => {
+  console.error('signIn failure ran.  error is: ', error)
+//  $('#sign-in-modal').modal('hide')
 }
 
-const placeYFailure = (error) => {
-  console.error('placeY failure ran.  error is: ', error)
-}
-
-const clearGameSuccess = () => {
-  console.log('clearGame success ran.  and nothing was returned')
+const signOutSuccess = () => {
+  console.log('sign-out success ran.  and nothing was returned')
   console.log('store is: ', store)
-  store.game = null
+  store.user = null
   console.log('store is: ', store)
-  $('#clear-game-modal').modal('hide')
+  $('#sign-out-modal').modal('hide')
 }
 
-const clearGameFailure = (error) => {
-  console.error('clear-game failure ran.  error is: ', error)
+const signOutFailure = (error) => {
+  console.error('sign-out failure ran.  error is: ', error)
+//  $('#sign-out-modal').modal('hide')
+
+}
+
+const changePasswordSuccess = () => {
+  console.log('change-password success ran.  and nothing was returned')
+  console.log('store is: ', store)
+  store.user = null
+  console.log('store is: ', store)
+  $('#change-password-modal').modal('hide')
+
+}
+
+const changePasswordFailure = (error) => {
+  console.error('change-password failure ran.  error is: ', error)
+//  $('#change-password-modal').modal('hide')
 }
 
 module.exports = {
-  newGameSuccess,
-  newGameFailure,
-  placeXSuccess,
-  placeXFailure,
-  placeYSuccess,
-  placeYFailure,
-  clearGameSuccess,
-  clearGameFailure
+  signUpSuccess,
+  signUpFailure,
+  signInSuccess,
+  signInFailure,
+  signOutSuccess,
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

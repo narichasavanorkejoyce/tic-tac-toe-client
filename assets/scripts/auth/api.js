@@ -8,7 +8,7 @@ const signUp = (data) => {
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
-    // data: data is same as just plain data
+    // data: data
   })
 }
 
@@ -17,7 +17,7 @@ const signIn = (data) => {
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data
-    // data: data is same as just plain data
+    // data: data
   })
 }
 
@@ -28,9 +28,9 @@ const signOut = () => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // data: data is same as just plain data
   })
 }
+
 const changePassword = (data) => {
   console.log('data is ', data)
   return $.ajax({
@@ -40,7 +40,6 @@ const changePassword = (data) => {
       Authorization: 'Token token=' + store.user.token
     },
     data
-    // data: data is same as just plain data
   })
 }
 
