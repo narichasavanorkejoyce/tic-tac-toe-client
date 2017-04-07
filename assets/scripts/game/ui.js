@@ -6,7 +6,7 @@ const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
   $('#new-game-modal').modal('hide')
-  store.game = data.game
+  //store.game = data.game
 }
 
 const createGameFailure = (error) => {

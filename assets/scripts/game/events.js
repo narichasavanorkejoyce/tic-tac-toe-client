@@ -9,7 +9,6 @@ const onCreateGame = function (event) {
   event.preventDefault()
   console.log('i clicked new game')
   api.createGame(data)
-  console.log(data.game.id)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
 }
@@ -27,9 +26,10 @@ const onPlayerIs = function (event) {
 }
 
 const onClearGame = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  console.log('game/events/onClearGame ran')
-  api.clearGame()
+  console.log('i cleared a game')
+  api.clearGame(data)
     .then(ui.clearGameSuccess)
     .catch(ui.clearGameFailure)
 }

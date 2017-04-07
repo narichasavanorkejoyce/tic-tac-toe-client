@@ -5,66 +5,39 @@
 //this is an empty gameBoard
 const gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "] //empty game board
 
-const IsPlayer = {
-  id,
-  piece,
-  email
-}
-//}"X" //X if it's X's turn, O if it's not X's turn
-//
-/*const play = function(isPlayer){
-  console.log(isPlayer)
-  let play = isPlayer
-  console.log(play)
-  if (play === "X") {
-    boardpiece = play //replace w display on click: $('#boardpiece[this.id]').text(playerIs)
-    console.log(boardpiece)
-    isPlayer = "0"
-    console.log(play)
-  }
-  else {
-      boardpiece = "O"
-      isPlayer = "X"
-        //$(‘#boardpiece[this.id]’).text(playerIs)
-     }
-     return boardpiece
-}
-*/
+let isPlayer = "X"
 
-const makeMove = function(isPlayer) { //function accepts isPlayer (X or O as arg
-  if(isPlayer === "X") {  //if isPlayer passed is an X (goes first)
-    boardpiece = "X"
-    console.log(boardpiece)
-    isPlayer = "O"
-//    $('#0').on('click', text(isPlayer)
-  } else {
-    isPlayer = "O"
+//call makeMove like this:  let player = makeMove(isPlayer) and will return opp value
+const makeMove = function makeMove (isPlayer) {
+  let boardpiece = isPlayer
+  if (boardpiece === "X") {
+    console.log("X") // here we would want to add text to gameBoard
+    //like this:        $(‘.boardpiece’).text(boardpiece)
+    $('.boardpiece').text(boardpiece)
     boardpiece = "O"
-    console.log(boardpiece)
-    isPlayer("X")
+  } else {
+    boardpiece = "X"
   }
-    return boardpiece
+  return boardpiece
 }
-
-/*
-if (playerIs === ‘X’) {
-       playerIs = ‘O’
-       $(‘.playerDiv’).text(playerIs)
-     } else playerIs = ‘X’
-     */
-
 
 let gameStats = {
   totalGames,
   totalWins
 }
 
+let player = "X"
+let testBoard = ["X","O"," ","X","O"," ","X"," "," "]
+
 //this function determines if the game over over.  if it is over, returns T or F
-const isWin = function(boardpiece, player){
+const isWin = function(board, player){
   let over = false
+  let gameBoard = board
+  let player = player
   if (
      // First row check
      (gameBoard[0] === player && gameBoard[1] === player && gameBoard[2] === player) ||
+     //example: ["X"," "," ","X"," "," ","X"," "," "]
      // Second row check
      (gameBoard[3] === player && gameBoard[4] === player && gameBoard[5] === player) ||
       // Third row check

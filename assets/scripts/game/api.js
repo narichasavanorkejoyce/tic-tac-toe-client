@@ -6,9 +6,9 @@ const store = require('../store')
 
 const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrig + '/games/' + store.game,
+    url: config.apiOrig + '/games/',
     method: 'POST',
-    data
+    //data
     // data: data is same as just plain data
   })
 }
