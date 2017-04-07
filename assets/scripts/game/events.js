@@ -5,22 +5,22 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
-/*const onNewGame = function (event) {
+const onCreateGame = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.newGame(data)
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
-*/
-const onPlacePiece = function (event) {
+
+const onPlayerIs = function (event) {
   event.preventDefault()
-  console.log('game/events/onPlaceX ran')
+  console.log('onPlayerIs ran')
   const data = getFormFields(this)
   console.log(data)
   const boardpieceId = game.id
 
-  api.onPlaceX(data)
+  api.onPlayerIs(data)
     .then(ui.placeXSuccess)
     .catch(ui.placeXFailure)
 }
@@ -54,14 +54,17 @@ const data = getFormFields(this)
 }
 */
 const addHandlers = () => {
+//  ("#new-game").on('click', onNewGame)
+  //event.preventDefault();
+//  });
   $('#new-game').on('click', onNewGame)
   $('#place-X').on('click', onPlaceX)
   $('#place-Y').on('click', onPlaceX)
   $('#clear-game').on('click', onClearGame)
-  $('#boardpiece1').on('click', sonPlaceX)
+  $('#boardpiece').on('click', sonPlaceX)
 }
 
 module.exports = {
   addHandlers,
-  onPlaceX
+  onCreateGame
 }

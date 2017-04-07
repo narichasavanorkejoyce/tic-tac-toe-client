@@ -12,23 +12,6 @@ const newGame = (data) => {
   })
 }
 
-const placeX = (data) => {
-  return $.ajax({
-    url: config.apiOrigin + '/game',
-    method: 'PATCH',
-    data
-    // data: data is same as just plain data
-  })
-}
-
-const placeY = (data) => {
-  return $.ajax({
-    url: config.apiOrigin + '/game',
-    method: 'PATCH',
-    data
-    // data: data is same as just plain data
-  })
-}
 
 const clearGame = () => {
   return $.ajax({
