@@ -1,58 +1,66 @@
 'use strict'
 
-//const gameEvents = require("./events")
+const gameEvents = require("./events")
+const gameUI = require("./ui")
 
-//this is an empty gameBoard
-const gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "] //empty game board
+//  this is an empty gameBoard
+const cells = new Array(9) // empty game board
 
-let isPlayer = "X"
+const isPlayer = 'X'
 
-let data = {
-  "game": {
-    "cell": {
-      "index": 0,
-      "value": "x"
+$('.boardpiece').on('click', getBoardpieceID)
+
+const getBoardpieceID = function () {
+
+ let boardpieceID = $(this).attr('id')
+ console.log(boardpieceID)
+}
+
+const data = {
+  'game': {
+    'cell': {
+      'index': 0,
+      'value': 'x'
     },
-    "over": false
+    'over': false
   }
 }
 
-//call makeMove like this:  let player = makeMove(isPlayer) and will return opp value
+//  call makeMove like this:  let player = makeMove(isPlayer) and will return opp value
 const makeMove = function makeMove (isPlayer) {
   let boardpiece = isPlayer
-  if (boardpiece === "X") {
-    console.log("X") // here we would want to add text to gameBoard
-    //like this:        $(‘.boardpiece’).text(boardpiece)
+  if (boardpiece === 'X') {
+    console.log('X') // here we would want to add text to gameBoard
+    //  like this:        $(‘.boardpiece’).text(boardpiece)
     $('.boardpiece').text(boardpiece)
-    boardpiece = "O"
+    boardpiece = 'O'
   } else {
-    boardpiece = "X"
+    boardpiece = 'X'
   }
   return boardpiece
 }
 
-
-let gameStats = {
+const gameStats = {
   totalGames,
   totalWins
 }
 
-let player = "X"
-let testBoard1 = ["X","O","X","X","O"," ","X"," "," "]
-let testBoard2 = ["X","X"," ","X","O"," ","X"," "," "]
+const player = 'X'
+const testBoard1 = ['X', 'O', 'X', 'X', 'O', '', 'X', '', '']
+const testBoard2 = ['X', 'O', 'X', 'X', 'O', '', 'O', 'O', '']
 
-//this function determines if the game over over.  if it is over, returns T or F
+//  this function determines if the game over over.  if it is over, returns T or F
 
-//need a draw
+//  need a draw
 
-const isWin = function(board, isPlayer){
+const isWin = function (board, isPlayer) {
   let over = false
-  let gameBoard = board
-  let player = isPlayer
+  const gameBoard = board
+  const player = isPlayer
   if (
      // First row check
      (gameBoard[0] === player && gameBoard[1] === player && gameBoard[2] === player) ||
-     //example: ["X"," "," ","X"," "," ","X"," "," "]
+     // example: ["X"," "," ","X"," "," ","X"," "," "]
      // Second row check
      (gameBoard[3] === player && gameBoard[4] === player && gameBoard[5] === player) ||
       // Third row check
@@ -67,21 +75,22 @@ const isWin = function(board, isPlayer){
      (gameBoard[0] === player && gameBoard[4] === player && gameBoard[8] === player) ||
       // Upward Diag check
      (gameBoard[6] === player && gameBoard[4] === player && gameBoard[2] === player)) {
-       over = true
-       return over
-     } else {
-       over = false
-     }
+    over = true
+    return over
+  } else {
+    over = false
+  }
   return over
 }
 
-let game = {
+const game = {
   cells,
   over,
   isPlayer
 }
 module.exports = {
-  gameBoard,
+  cells,
+  boardpieceID,
   isPlayer,
   player,
   gameStats,

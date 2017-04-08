@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+//const gameEvents = require('/events')
 
 const onCreateGame = function (event) {
   event.preventDefault()
@@ -13,12 +14,23 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
+const onMakeMove = function (event) {
+  event.preventDefault()
+  console.log('onSubmitMove worked!')
+  const data = store.game.id
+  console.log(this)
+  console.log(event.target)
+  api.submitMove(data)
+    .done(ui.makeMoveSuccess)
+    .fail(ui.makeMoveFailure)
+}
+
 const onPlayerIs = function (event) {
   event.preventDefault()
   console.log('onPlayerIs ran')
   //const data = getFormFields(this)
   //console.log(data)
-  const boardpieceID = game.id
+  const id = data.id
   console.log('the current player played a ' + this.player)
   api.onPlayerIs(data)
     .then(ui.onPlayerIsSuccess)
@@ -26,18 +38,17 @@ const onPlayerIs = function (event) {
 }
 
 const onClearGame = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  console.log('i cleared a game')
+  console.log('i clicked clear game ')
+//  const data = id
   api.clearGame(data)
     .then(ui.clearGameSuccess)
     .catch(ui.clearGameFailure)
 }
 
 const addHandlers = () => {
-
   $('#createGame').on('click', onCreateGame),
-  $('.boardpiece').on('click', onPlayerIs),
+  $('.boardpiece').on('click', onMakeMove),
   $('#clearGame').on('click', onClearGame)
 }
 

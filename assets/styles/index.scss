@@ -52,6 +52,7 @@ $white: #fff;
 h1 {
   text-align: center;
   text-transform:uppercase;
+  color: white;
 }
 
 body {
@@ -83,4 +84,10 @@ body {
 
 .btn btn-primary {
   background-color: yellow;
+}
+
+.boardpiece {
+  height: 50px;
+  width: 50px;
+
 }

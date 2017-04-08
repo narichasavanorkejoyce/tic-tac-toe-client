@@ -2,8 +2,6 @@
 
 const config = require('../config')
 const store = require('../store')
-const gameEvents = require('./events')
-//const logic = require('/logic')
 
 const createGame = (data) => {
   return $.ajax({
@@ -17,16 +15,29 @@ const createGame = (data) => {
   })
 }
 
+const makeMove = function (data) {
+  console.log(data)
+  console.log(store)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.game.token
+    },
+    data
+  })
+}
+
 const showGame = function (id) {
   return $.ajax({
-    url: app.apiOrigin + '/games/' + store.game.id,
-    method: 'GET',
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'GET'
   })
 }
 
 const updateGame = () => {
   return $.ajax({
-    url: config.apiOrigin + '/game/' + store.game.id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.game.token
@@ -35,20 +46,22 @@ const updateGame = () => {
   })
 }
 
-/*const clearGame = () => {
-  return $.ajax({_store.user.token
-    url: config.apiOrigin + '/game/' + store.game.id,
+const clearGame = function (data) {
+  console.log(data)
+  console.log(store)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.game.token
-    }
-    // data: data is same as just plain data
+    },
+    data
   })
 }
-*/
 module.exports = {
   createGame,
   showGame,
+  makeMove,
+  clearGame,
   updateGame
-//  clearGame
 }
