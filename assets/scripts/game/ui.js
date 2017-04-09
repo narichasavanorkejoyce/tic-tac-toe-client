@@ -15,9 +15,9 @@ const createGameFailure = (error) => {
 
 const totalGamesSuccess = (data) => {
   console.log(data)
-  console.log('games have been retrieve')
+  store.games = data.games
+  console.log(store.games.length, 'games have been retrieved')
   $('#totalGamesbyUser').modal('hide')
-  store.game = data.game
 }
 
 const totalGamesFailure = (error) => {

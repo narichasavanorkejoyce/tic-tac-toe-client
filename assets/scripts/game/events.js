@@ -14,11 +14,11 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-const onTotalGamesbyUser = function (event) {
-  event.preventDefault()
+const onTotalGamesByUser = function (event) {
+//  event.preventDefault()
   console.log('i clicked to get all games')
   const data = '{}'
-  api.totalGamesbyUser(this.data)
+  api.totalGamesByUser(this.data)
    .then(ui.totalGamesSuccess)
    .catch(ui.totalGamesFailure)
 }
@@ -27,8 +27,8 @@ const onClickBoard = function (event) {
   const data = {
     'game': {
       'cell': {
-        'index': 0,
-        'value': 'x'
+        'index': '',
+        'value': ''
       },
       'over': false
     }
@@ -36,7 +36,7 @@ const onClickBoard = function (event) {
   console.log(data)
   let currentPlayer = 'X'
   const value = currentPlayer
-//  const games = []
+//  let store.game = data.game
   console.log('enter for loop next')
   for (let i = 0; i < 9; i++) {
     if (currentPlayer === 'X') {
@@ -93,10 +93,11 @@ const addHandlers = () => {
   $('.6').on('click', onClickBoard)
   $('.7').on('click', onClickBoard)
   $('.8').on('click', onClickBoard)
-  $('#totalGamesbyUser').on('click', totalGamesbyUser)
+  $('#totalGamesByUser').on('click', onTotalGamesByUser)
 }
 
 module.exports = {
   addHandlers,
-  onClickBoard
+  onClickBoard,
+  onTotalGamesByUser
 }
