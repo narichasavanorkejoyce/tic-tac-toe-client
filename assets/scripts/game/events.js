@@ -14,6 +14,15 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
+const onTotalGamesbyUser = function (event) {
+  event.preventDefault()
+  console.log('i clicked to get all games')
+  const data = '{}'
+  api.totalGamesbyUser(this.data)
+   .then(ui.totalGamesSuccess)
+   .catch(ui.totalGamesFailure)
+}
+
 const onClickBoard = function (event) {
   const data = {
     'game': {
@@ -24,23 +33,35 @@ const onClickBoard = function (event) {
       'over': false
     }
   }
+  console.log(data)
   let currentPlayer = 'X'
-  let boardpieceID = $(this).attr('class')
-  console.log(boardpieceID)
-  console.log('player is ', currentPlayer)
+  const value = currentPlayer
+//  const games = []
   console.log('enter for loop next')
   for (let i = 0; i < 9; i++) {
     if (currentPlayer === 'X') {
+      const index = $(this).attr('class')
+      console.log('index is ', index)
+//      let games[pieceID] = value
+      console.log('the value is ', value)
+      console.log('player is ', currentPlayer)
       $(this).text('X')
+      $(this).innerhtml = value
+      store.game = data.game
+      api.updateGame(this.data)
+      console.log('just played a(n) ', currentPlayer, ' in index ', index)
       currentPlayer = 'O'
-      console.log('just played a(n) ', currentPlayer, ' in boardpieceID ', boardpieceID)
-      return currentPlayer
     } else {
+      const index = $(this).attr('class')
+      console.log('index is ', index)
+      data.game[index] = value
+      console.log('the value is ', value)
+      console.log('player is ', currentPlayer)
       $(this).text('O')
-      currentPlayer = 'X'
-      console.log('just played a(n) ', currentPlayer, ' in boardpieceID ', boardpieceID)
-      return currentPlayer
+      console.log('just played a(n) ', currentPlayer, ' in index ', index)
     }
+    console.log(data.game)
+    return currentPlayer
   }
 //   let boardpieceID = $(this).attr('class')
 //   currentPlayer = 'O'
@@ -50,6 +71,16 @@ const onClickBoard = function (event) {
 //   return currentPlayer
 //
 }
+//
+// const clearBoard = function (game) {
+//   console.log('Clearboard ran!')
+//   const board = game
+//   for (let i = 0; i < 9; i++) {
+//     boardpieceID = $(this).attr('class')
+//     board[boardpieceID] = $(this).text('')
+//   }
+//   return board
+// }
 
 const addHandlers = () => {
   $('#createGame').on('click', onCreateGame)
@@ -62,6 +93,7 @@ const addHandlers = () => {
   $('.6').on('click', onClickBoard)
   $('.7').on('click', onClickBoard)
   $('.8').on('click', onClickBoard)
+  $('#totalGamesbyUser').on('click', totalGamesbyUser)
 }
 
 module.exports = {

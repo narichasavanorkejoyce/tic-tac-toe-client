@@ -22,7 +22,7 @@ const makeMove = function (data) {
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.game.token
+      Authorization: 'Token token=' + store.user.token
     },
     data
   })
@@ -35,19 +35,32 @@ const showGame = function (id) {
   })
 }
 
-const updateGame = () => {
+const updateGame = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.game.token
-    }
-    // passing cell index, value
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const totalGamesbyUser = function (data) {
+  return $.ajax({
+  url: config.apiOrigin + '/games/' + store.user.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+     // data: data is same as just plain data
   })
 }
 
 module.exports = {
   createGame,
+  totalGamesbyUser,
   showGame,
   makeMove,
   updateGame

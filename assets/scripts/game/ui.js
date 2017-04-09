@@ -13,6 +13,16 @@ const createGameFailure = (error) => {
   console.error(error)
 }
 
+const totalGamesSuccess = (data) => {
+  console.log(data)
+  console.log('games have been retrieve')
+  $('#totalGamesbyUser').modal('hide')
+  store.game = data.game
+}
+
+const totalGamesFailure = (error) => {
+  console.error(error)
+}
 /*  const makeMoveSuccess = (game.id) ==> {
   console.log('the data for making a move is : ', data)
   store.game = data.game
@@ -35,6 +45,8 @@ const updateGameFailure = (error) => {
 module.exports = {
   createGameSuccess,
   createGameFailure,
+  totalGamesSuccess,
+  totalGamesFailure,
   //  makeMoveSuccess,
   //  makeMoveFailure,
   updateGameSuccess,
