@@ -46,22 +46,9 @@ const updateGame = () => {
   })
 }
 
-const clearGame = function (data) {
-  console.log(data)
-  console.log(store)
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.game.token
-    },
-    data
-  })
-}
 module.exports = {
   createGame,
   showGame,
   makeMove,
-  clearGame,
   updateGame
 }

@@ -32,25 +32,11 @@ const updateGameFailure = (error) => {
   console.error('update game failure ran.  error is: ', error)
 }
 
-const clearGameSuccess = () => {
-  console.log('clearGame success ran.  and nothing was returned')
-  console.log('store is: ', store)
-  store.game = null
-  console.log('store is: ', store)
-//  $('#clearGame').modal('hide')
-}
-
-const clearGameFailure = (error) => {
-  console.error('clear-game failure ran.  error is: ', error)
-}
-
 module.exports = {
   createGameSuccess,
   createGameFailure,
   //  makeMoveSuccess,
   //  makeMoveFailure,
   updateGameSuccess,
-  updateGameFailure,
-  clearGameSuccess,
-  clearGameFailure
+  updateGameFailure
 }

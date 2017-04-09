@@ -1,20 +1,21 @@
 'use strict'
 
-const gameEvents = require("./events")
-const gameUI = require("./ui")
+//  const gameEvents = require("./events")
+//  const gameUI = require("./ui")
 
 //  this is an empty gameBoard
 const cells = new Array(9) // empty game board
 
 const isPlayer = 'X'
 
-$('.boardpiece').on('click', getBoardpieceID)
+//  $('.boardpiece').on('click', getBoardpieceID)
 
-const getBoardpieceID = function () {
+//  const getBoardpieceID = function () {
+//  let boardpieceID = $(this).attr('id')
+//  console.log(boardpieceID)
+//  }
 
- let boardpieceID = $(this).attr('id')
- console.log(boardpieceID)
-}
+//  const boardpiece = game.value
 
 const data = {
   'game': {
@@ -40,14 +41,15 @@ const makeMove = function makeMove (isPlayer) {
   return boardpiece
 }
 
+const player = makeMove('X')
+
 const gameStats = {
   totalGames,
   totalWins
 }
 
-const player = 'X'
-const testBoard1 = ['X', 'O', 'X', 'X', 'O', '', 'X', '', '']
-const testBoard2 = ['X', 'O', 'X', 'X', 'O', '', 'O', 'O', '']
+//  testBoard1 = ['X', 'O', 'X', 'X', 'O', '', 'X', '', '']
+//  const testBoard2 = ['X', 'O', 'X', 'X', 'O', '', 'O', 'O', '']
 
 //  this function determines if the game over over.  if it is over, returns T or F
 
@@ -88,6 +90,7 @@ const game = {
   over,
   isPlayer
 }
+
 module.exports = {
   cells,
   boardpieceID,
