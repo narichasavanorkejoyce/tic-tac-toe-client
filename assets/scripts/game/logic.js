@@ -55,10 +55,9 @@ const gameStats = {
 
 //  need a draw
 
-const isWin = function (board, isPlayer) {
-  let over = false
+const isWin = function (board, currentPlayer) {
   const gameBoard = board
-  const player = isPlayer
+  const player = currentPlayer
   if (
      // First row check
      (gameBoard[0] === player && gameBoard[1] === player && gameBoard[2] === player) ||
@@ -79,6 +78,8 @@ const isWin = function (board, isPlayer) {
      (gameBoard[6] === player && gameBoard[4] === player && gameBoard[2] === player)) {
     over = true
     return over
+  } else if { // draw scenario in here -
+
   } else {
     over = false
   }
