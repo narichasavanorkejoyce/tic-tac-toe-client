@@ -9,8 +9,7 @@ const createGame = (data) => {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
     // data: data is same as just plain data
   })
 }
@@ -20,7 +19,7 @@ const clearGame = (data) => {
     url: config.apiOrigin + '/games/',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.game.token
+      Authorization: 'Token token=' + store.user.token
     },
     data
     // data: data is same as just plain data
@@ -37,13 +36,6 @@ const makeMove = function (data) {
       Authorization: 'Token token=' + store.user.token
     },
     data
-  })
-}
-
-const showGame = function (id) {
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'GET'
   })
 }
 
@@ -70,11 +62,23 @@ const totalGamesByUser = function (data) {
   })
 }
 
+const displayOneGame = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/:id',  //  store.game.id
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+//    data
+     // data: data is same as just plain data
+  })
+}
+
 module.exports = {
   createGame,
   clearGame,
   totalGamesByUser,
-  showGame,
   makeMove,
-  updateGame
+  updateGame,
+  displayOneGame
 }
