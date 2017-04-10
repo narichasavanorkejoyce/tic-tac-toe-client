@@ -86,39 +86,64 @@ const isWin = function(board, currentPlayer) {
   let over = false
   if ((gameBoard[0] === gameBoard[1]) && (gameBoard[1] === gameBoard[2]) && (gameBoard[2] === player)) {
     console.log('player ', player, ' won') // 1st row win
-    $(this).text('player ', player, ' won')
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
+    onClearBoard()
     return over
   } else if ((gameBoard[3] === gameBoard[4]) && (gameBoard[4] === gameBoard[5]) && (gameBoard[5] === player)) {
     console.log('player ', player, ' won') // 2nd row win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[6] === gameBoard[7]) && (gameBoard[7] === gameBoard[8]) && (gameBoard[8] === player)) {
     console.log('player ', player, ' won') // 3rd row win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[0] === gameBoard[3]) && (gameBoard[3] === gameBoard[6]) && (gameBoard[6] === player)) {
     console.log('player ', player, ' won') // 1st column win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[1] === gameBoard[4]) && (gameBoard[4] === gameBoard[7]) && (gameBoard[7] === player)) {
     console.log('player ', player, ' won') // 2nd column win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[2] === gameBoard[5]) && (gameBoard[5] === gameBoard[8]) && (gameBoard[8] === player)) {
     console.log('player ', player, ' won') // 3rd column win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[0] === gameBoard[4]) && (gameBoard[4] === gameBoard[8]) && (gameBoard[8] === player)) {
     console.log('player ', player, ' won') // L to R diagonal win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[2] === gameBoard[4]) && (gameBoard[4] === gameBoard[6]) && (gameBoard[6] === player)) {
     console.log('player ', player, ' won') // R to L diagonal win
+    $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
+    over = true
+    onClearBoard()
     over = true
     return over
   } else if ((gameBoard[0] === ('X' || 'O')) && (gameBoard[1] === ('X' || 'O')) && (gameBoard[2] === ('X' || 'O')) && (gameBoard[3] === ('X' || 'O')) && (gameBoard[4] === ('X' || 'O')) && (gameBoard[5] === ('X' || 'O')) && (gameBoard[6] === ('X' || 'O')) && (gameBoard[7] === ('X' || 'O'))) {
     console.log('Nobody won! Ending is a cat like Meow!')
+    $('h1').html('<p>Game over.  Nobody won.  End is a CAT (like meow).</p>')
+    over = true
+    onClearBoard()
     let over = true // draw
     return over
   } else {
@@ -128,7 +153,7 @@ const isWin = function(board, currentPlayer) {
 }
 
 const onClearBoard = function (event) {
-  event.preventDefault()
+//  event.preventDefault()
   console.log('clearBoard started')
   $('.0').html('&nbsp;')
   $('.1').html('&nbsp;')

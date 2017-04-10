@@ -27,7 +27,10 @@ const createGameFailure = (error) => {
 const totalGamesSuccess = (data) => {
   console.log(data)
   store.games = data.games
+  let userGames = store.games.length
+  let userGameArray = JSON.stringify(store.games)
   console.log(store.games.length, 'games have been retrieved')
+  $('h1').html('<p>User played' + userGames + ' games.  Wow.' + userGameArray + '</p>')
   $('#totalGamesbyUser').modal('hide')
 }
 
