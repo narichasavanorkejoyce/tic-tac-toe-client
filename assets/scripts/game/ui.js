@@ -13,6 +13,17 @@ const createGameFailure = (error) => {
   console.error(error)
 }
 
+// const clearGameSuccess = (data) => {
+//   console.log(data)
+//   console.log('game has been cleared')
+//   $('#clearGame').modal('hide')
+//   store.game = data.game
+// }
+//
+// const clearGameFailure = (error) => {
+//   console.error(error)
+// }
+
 const totalGamesSuccess = (data) => {
   console.log(data)
   store.games = data.games
@@ -23,16 +34,7 @@ const totalGamesSuccess = (data) => {
 const totalGamesFailure = (error) => {
   console.error(error)
 }
-/*  const makeMoveSuccess = (game.id) ==> {
-  console.log('the data for making a move is : ', data)
-  store.game = data.game
-  console.log('makeMoveSuccess')
-}
 
-const makeMoveFailure = (data) ==> {
-  console.error('makeMove failure ran.  error is: ', error)
-}
-*/
 const updateGameSuccess = (data) => {
   console.log('update game success ran.  data is : ', data)
   store.game = data.game
@@ -47,8 +49,6 @@ module.exports = {
   createGameFailure,
   totalGamesSuccess,
   totalGamesFailure,
-  //  makeMoveSuccess,
-  //  makeMoveFailure,
   updateGameSuccess,
   updateGameFailure
 }

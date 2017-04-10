@@ -15,6 +15,18 @@ const createGame = (data) => {
   })
 }
 
+const clearGame = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.game.token
+    },
+    data
+    // data: data is same as just plain data
+  })
+}
+
 const makeMove = function (data) {
   console.log(data)
   console.log(store)
@@ -60,6 +72,7 @@ const totalGamesByUser = function (data) {
 
 module.exports = {
   createGame,
+  clearGame,
   totalGamesByUser,
   showGame,
   makeMove,
