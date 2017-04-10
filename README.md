@@ -15,16 +15,7 @@ The first player is X and clicks with mouse/pass on the grid board piece and the
 
 Tic-Tac-Toe is built using HTML, CSS, SASS, Javascript, and jQuery and relies on a Rails API/Postgres to persist data.
 
-### User Stories
-
-- I want to view randomly generated patterns for quilts based on the following variables: quilt size, block size, # of colors.
-- I want to be able to save my favorite quilt patterns to an account.
-- I want to be able to share (link directly to) patterns
-- I want to be able to save a "project" connected to a pattern that includes my notes on making the quilt and my photo of that quilt
-- I want to be able to view a gallery of all users' projects
-- I want to be able to look at the gallery (patterns + projects) without logging in
-
-### User stories (stretch)
+### User stories
 - As a user, I want to play tic-tac-toe online accessed via a single page.
 - As a developer, I want to work with separate branches for various pieces of work with frequest commits and then merge them from master branch.
 - As a developer, I want a practical README.md to explain details about the project and how to run the code.
@@ -61,7 +52,7 @@ Install build dependencies with `bundle install`. Browser-template provided many
 
 ## Additional Tech Used
 
-There were numerous files giv
+There were numerous files given to us in template files.
 
 ## Next Steps
 
