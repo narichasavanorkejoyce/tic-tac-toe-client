@@ -15,6 +15,7 @@
 
 <body>
     <h1>tic-tac-toe</h1>
+    <p class="displayWinner"> </p>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,7 +26,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" >by Lisa M. Smith</a>
+                <a class="navbar-brand" >by Lisa M. Smith </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
@@ -33,11 +34,9 @@
                     <a href="#" class="dropdown-games" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="createGame">New Game</a></li>
-                        <li><a href="#" id="clear-game">Clear Game</a></li>
-                        <li><a href="#" id="total-games">Total Games</a></li>
-                        <li><a href="#" id="number-wins">Number of Wins</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#" id="clearBoard">Clear Board</a></li>
+                        <li><a href="#" id="totalGamesByUser">Total Games By User</a></li>
+                        <li><a href="#" id="numberWins">Number of Wins</a></li>
                     </ul>
                 </li>
             </ul>
@@ -108,29 +107,41 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-      <table class=‘game-board’>
+    <!-- Large modal for change password -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#display-one-game-modal">Display One Game</button>
+    <div class="modal fade" id="display-one-game-modal" tabindex="-1" role="dialog" aria-labelledby="Display One Game">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='display-one-game-modal' id="display-one-game-modal">
+                    <fieldset>
+                      <input type="id" name="id" id="display-one-game-modal" placeholder="type game id here">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+   <!-- <div class="container"> -->
+      <table>
        <tr>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘0’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘1’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘2’>&nbsp;</div></td>
+         <td class='0'><div class=‘boardpiece’ id=‘0’>&nbsp;</div></td>
+         <td class='1'><div class=‘boardpiece’ id=‘1’>&nbsp;</div></td>
+         <td class='2'><div class=‘boardpiece’ id=‘2’>&nbsp;</div></td>
            <!--<form><input name="boardpiece[0][value]" type="text" value="0"></form></div></td> s-->
        </tr>
        <tr>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘3’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘4’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘5’>&nbsp;</div></td>
+         <td class='3'><div class=‘boardpiece’ id=‘3’>&nbsp;</div></td>
+         <td class='4'><div class=‘boardpiece’ id=‘4’>&nbsp;</div></td>
+         <td class='5'><div class=‘boardpiece’ id=‘5’>&nbsp;</div></td>
        </tr>
        <tr>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘6’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘7’>&nbsp;</div></td>
-         <td class=‘boardpiece’><div class=‘boardpiece’ id=‘8’>&nbsp;</div></td>
+         <td class='6'><div class=‘boardpiece’ id=‘6’>&nbsp;</div></td>
+         <td class='7'><div class=‘boardpiece’ id=‘7’>&nbsp;</div></td>
+         <td class='8'><div class=‘boardpiece’ id=‘8’>&nbsp;</div></td>
        </tr>
      </table>
-
+  <!-- </div> -->
         <!-- Generic -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="newGame">
+        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="newGame">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -152,8 +163,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
 </body>
 
 </html>

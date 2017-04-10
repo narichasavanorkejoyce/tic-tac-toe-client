@@ -5,54 +5,70 @@ const store = require('../store')
 const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
-  $('#new-game-modal').modal('hide')
+  $('#createGame').modal('hide')
   store.game = data.game
-  
 }
 
 const createGameFailure = (error) => {
   console.error(error)
 }
 
-const showGameSuccess = (data) => {
-  console.log('games for a user are show successfully.  data is : ', data)
-  store.user = data.user
-  $('#place-X-modal').modal('hide')
+const clearGameSuccess = (data) => {
+  console.log(data)
+  console.log('game has been cleared')
+  $('#clearGame').modal('hide')
+//  store.game = data.game
 }
 
-const showGameFailure = (error) => {
-  console.error('showGame failure ran.  error is: ', error)
+const clearGameFailure = (error) => {
+  console.error(error)
+}
+
+const totalGamesSuccess = (data) => {
+  console.log(data)
+  store.games = data.games
+  const userGames = store.games.length
+  const userGameArray = JSON.stringify(store.games)
+  console.log(store.games.length, 'games have been retrieved')
+  $('h1').html('<p>User played' + userGames + ' games.  Wow.' + userGameArray + '</p>')
+  $('#totalGamesbyUser').modal('hide')
+}
+
+const totalGamesFailure = (error) => {
+  console.error(error)
 }
 
 const updateGameSuccess = (data) => {
   console.log('update game success ran.  data is : ', data)
   store.game = data.game
-  $('#place-Y-modal').modal('hide')
 }
 
 const updateGameFailure = (error) => {
   console.error('update game failure ran.  error is: ', error)
 }
 
-const clearGameSuccess = () => {
-  console.log('clearGame success ran.  and nothing was returned')
-  console.log('store is: ', store)
-  store.game = null
-  console.log('store is: ', store)
-  $('#clear-game-modal').modal('hide')
+const displayOneGameSuccess = () => {
+  console.log(data)
+  store.games = data.games
+  const userGameArray = JSON.stringify(store.games)
+  console.log('game has been game:  ' + userGameArray + '</p>')
+  $('#display-one-game-modal').modal('hide')
 }
 
-const clearGameFailure = (error) => {
-  console.error('clear-game failure ran.  error is: ', error)
+const displayOneGameFailure = (error) => {
+  console.error('display-one-game-modal ran.  error is: ', error)
+//  $('#display-one-game-modal').modal('hide')
 }
 
 module.exports = {
   createGameSuccess,
   createGameFailure,
-  showGameSuccess,
-  showGameFailure,
+  clearGameSuccess,
+  clearGameFailure,
+  totalGamesSuccess,
+  totalGamesFailure,
   updateGameSuccess,
   updateGameFailure,
-  clearGameSuccess,
-  clearGameFailure
+  displayOneGameSuccess,
+  displayOneGameFailure
 }

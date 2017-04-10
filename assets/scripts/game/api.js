@@ -2,10 +2,19 @@
 
 const config = require('../config')
 const store = require('../store')
-const gameEvents = require('./events')
-//const logic = require('/logic')
 
 const createGame = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+    // data: data is same as just plain data
+  })
+}
+
+const clearGame = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'POST',
@@ -17,38 +26,59 @@ const createGame = (data) => {
   })
 }
 
-const showGame = function (id) {
+const makeMove = function (data) {
+  console.log(data)
+  console.log(store)
   return $.ajax({
-    url: app.apiOrigin + '/games/' + store.game.id,
-    method: 'GET',
-  })
-}
-
-const updateGame = () => {
-  return $.ajax({
-    url: config.apiOrigin + '/game/' + store.game.id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.game.token
-    }
-    // passing cell index, value
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 
-/*const clearGame = () => {
-  return $.ajax({_store.user.token
-    url: config.apiOrigin + '/game/' + store.game.id,
-    method: 'DELETE',
+const updateGame = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.game.token
-    }
-    // data: data is same as just plain data
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
-*/
+
+const totalGamesByUser = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+     // data: data is same as just plain data
+  })
+}
+
+const displayOneGame = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/:id',  //  store.game.id
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+//    data
+     // data: data is same as just plain data
+  })
+}
+
 module.exports = {
   createGame,
-  showGame,
-  updateGame
-//  clearGame
+  clearGame,
+  totalGamesByUser,
+  makeMove,
+  updateGame,
+  displayOneGame
 }

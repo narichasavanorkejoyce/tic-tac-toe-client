@@ -1,5 +1,5 @@
 #!/bin/bash
-#ID=1 TOKEN=BAhJIiUxZTU5YWVlYzQ2YTk5MDQwNWRlNWI5YzVlMWI5ZTJjMQY6BkVG--762724d1a53fa5704477fd9323d376795361385b sh scripts/show.sh
+#ID=172 TOKEN=BAhJIiU2YjgxZWVhNjQxZDBjOTA0YWE0YjM3MDA4MGZhMTZmOAY6BkVG--09ead02a3e17aa3172c551363c6ef99f4b5426d1 sh scripts/show.sh
 
 #The show action is a GET specifing the id of the game to retrieve.
 #If the request is successful the status will be 200, OK, and the response
@@ -11,3 +11,15 @@ curl "${API}${URL_PATH}" \
   --include \
   --request GET \
   --header "Authorization: Token id=$ID" \
+
+  const displayOneGame = function (data) {
+    return $.ajax({
+      url: config.apiOrigin + '/games/:id',  //  store.game.id
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.game.id
+      }
+  //    data
+       // data: data is same as just plain data
+    })
+  }
