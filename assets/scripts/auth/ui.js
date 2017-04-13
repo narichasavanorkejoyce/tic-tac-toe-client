@@ -2,23 +2,38 @@
 
 const store = require('../store')
 
+// if (store.user === null) {
+//   $('.sign-out-button').hide()
+//   $('.change-password-button').hide()
+//   $('.display-one-game-button').hide()
+// }
+
 const signUpSuccess = (data) => {
   console.log(data)
   console.log('sign up success ran.  data is : ', data)
   $('#sign-up-modal').modal('hide')
-  store.user=data.user
+  $('.sign-up-button').hide()
+  $('.sign-out-button').hide()
+  $('.change-password-button').hide()
+  $('.display-one-game-button').hide()
+  store.user = data.user
 }
 
 const signUpFailure = (error) => {
   console.error(error)
 //  $('#sign-up-modal').modal('hide')
-
 }
 
 const signInSuccess = (data) => {
   console.log('signIn success ran.  data is : ', data)
   store.user = data.user
   $('#sign-in-modal').modal('hide')
+  $('.sign-up-button').hide()
+  $('.sign-in-button').hide()
+  $('.sign-out-button').show()
+  $('#change-password').on('click', onChangePassword)
+
+  store.user = data.user
 }
 
 const signInFailure = (error) => {
@@ -32,6 +47,10 @@ const signOutSuccess = () => {
   store.user = null
   console.log('store is: ', store)
   $('#sign-out-modal').modal('hide')
+  $('.sign-up-button').show()
+  $('.sign-in-button').show()
+  $('.change-password-button').hide()
+  $('.sign-out-button').hide()
 }
 
 const signOutFailure = (error) => {
@@ -45,8 +64,10 @@ const changePasswordSuccess = () => {
   console.log('store is: ', store)
   store.user = null
   console.log('store is: ', store)
-  $('#change-password-modal').modal('hide')
-
+  $('.sign-out-button').show()
+  $('.sign-up-button').hide()
+  $('.sign-in-button').hide()
+  store.user = data.user
 }
 
 const changePasswordFailure = (error) => {

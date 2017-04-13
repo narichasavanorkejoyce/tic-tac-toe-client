@@ -20,8 +20,7 @@ const clearGame = (data) => {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
     // data: data is same as just plain data
   })
 }

@@ -21,6 +21,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+  $('#sign-up').button('hide')
 }
 
 const onSignOut = function (event) {
@@ -46,6 +47,17 @@ const addHandlers = () => {
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('click', onChangePassword)
 }
+
+const displayAuthButtons = function (event) {
+
+  if (ui.onSignInSuccess) {
+    $('sign-out-modal').display()
+    $('change-password-modal').display()
+    $('sign-up-modal').hide()
+  }
+}
+
+
 
 module.exports = {
   addHandlers
