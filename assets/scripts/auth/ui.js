@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const gameEvents = require('../game/events.js')
 
 // if (store.user === null) {
 //   $('.sign-out-button').hide()
@@ -31,9 +32,9 @@ const signInSuccess = (data) => {
   $('.sign-up-button').hide()
   $('.sign-in-button').hide()
   $('.sign-out-button').show()
-  $('#change-password').on('click', onChangePassword)
-
-  store.user = data.user
+  $('.change-password-button').show()
+  // $('#sign-out-button').on('click', events.onSignOut)
+  // $('#change-password-button').on('click', events.onChangePassword)
 }
 
 const signInFailure = (error) => {
@@ -56,17 +57,13 @@ const signOutSuccess = () => {
 const signOutFailure = (error) => {
   console.error('sign-out failure ran.  error is: ', error)
 //  $('#sign-out-modal').modal('hide')
-
 }
 
 const changePasswordSuccess = () => {
   console.log('change-password success ran.  and nothing was returned')
   console.log('store is: ', store)
-  store.user = null
+  data.user = null
   console.log('store is: ', store)
-  $('.sign-out-button').show()
-  $('.sign-up-button').hide()
-  $('.sign-in-button').hide()
   store.user = data.user
 }
 

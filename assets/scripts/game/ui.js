@@ -1,12 +1,13 @@
 'use strict'
 
 const store = require('../store')
+const gameStore = require('../gameStore')
 
 const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
   $('#createGame').modal('hide')
-  store.game = data.game
+  gameStore.game = data.game
 }
 
 const createGameFailure = (error) => {
