@@ -19,7 +19,7 @@ const clearGame = (data) => {
     url: config.apiOrigin + '/games/',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + data.game.token
     }
     // data: data is same as just plain data
   })
@@ -40,7 +40,7 @@ const makeMove = function (data) {
 
 const updateGame = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiOrigin + '/games/' + data.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
