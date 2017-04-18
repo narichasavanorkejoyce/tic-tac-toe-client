@@ -22,7 +22,8 @@ const signUpSuccess = (data) => {
 
 const signUpFailure = (error) => {
   console.error(error)
-//  $('#sign-up-modal').modal('hide')
+  $('#sign-out-button').hide()
+  $('#change-password-button-modal').hide()
 }
 
 const signInSuccess = (data) => {
@@ -31,15 +32,18 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
   $('.sign-up-button').hide()
   $('.sign-in-button').hide()
-  $('.sign-out-button').show()
-  $('.change-password-button').show()
+  $('.sign-out-button').on()
+  // $('.change-password-button').show()
+  // $('.sign-out-button').on()
+  $('.change-password-button').on()
   // $('#sign-out-button').on('click', events.onSignOut)
   // $('#change-password-button').on('click', events.onChangePassword)
 }
 
 const signInFailure = (error) => {
   console.error('signIn failure ran.  error is: ', error)
-//  $('#sign-in-modal').modal('hide')
+  $('#sign-out-button').hide()
+  $('#change-password-button').hide()
 }
 
 const signOutSuccess = () => {
