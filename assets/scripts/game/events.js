@@ -280,17 +280,6 @@ const onClearGame = function (event) {
   $('.6').html('&nbsp;')
   $('.7').html('&nbsp;')
   $('.8').html('&nbsp;')
-  // const data = {
-  //   'game': {
-  //     'cell': {
-  //       // 'index': +index,
-  //       // 'value': ' '
-  //     },
-  //     'over': false
-  //   }
-  // }
-  // api.clearGame(data)
-//  gameBoard = ['', '', '', '', '', '', '', '', '']
 }
 
 const addHandlers = () => {

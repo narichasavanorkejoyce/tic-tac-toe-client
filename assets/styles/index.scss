@@ -45,6 +45,7 @@ $white: #fff;
   background-color: #69bfea;
   height:auto;
 }
+
 #bs-example-navbar-collapse-1 {
   background-color: #69bfea;
 }
@@ -86,12 +87,16 @@ body {
   width: 175px;
 }
 
-.btn btn-primary {
+.btn-primary {
   background-color: yellow;
+  color: #4e4e4e;
 }
 
 .boardpiece {
   height: 20px;
   width: 20px;
+}
 
+.caret {
+  color: bold;
 }

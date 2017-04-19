@@ -5,7 +5,6 @@ const store = require('../store')
 const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
-  // $('#createGame').modal('hide')
   store.game = data.game
 }
 
@@ -17,7 +16,6 @@ const clearGameSuccess = (data) => {
   console.log(data)
   console.log('game has been cleared')
   $('#clearGame').modal('hide')
-//  store.game = data.game
 }
 
 const clearGameFailure = (error) => {
@@ -57,7 +55,6 @@ const displayOneGameSuccess = () => {
 
 const displayOneGameFailure = (error) => {
   console.error('display-one-game-modal ran.  error is: ', error)
-//  $('#display-one-game-modal').modal('hide')
 }
 
 module.exports = {

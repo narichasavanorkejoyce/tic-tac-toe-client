@@ -27,28 +27,10 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('signIn success ran.  data is : ', data)
   store.user = data.user
-  // $('#sign-up-modal').modal('toggle')
   $('#sign-in-modal').modal('toggle')
   $('.first-buttons').addClass('hiding')
   $('.logged-in-buttons').removeClass('hiding')
-  // $('.sign-up-button').hide()
-  // $('.sign-in-button').hide()
-  // $('.sign-out-button').show()
-  // $('.change-password-button').show()
-  // $('.sign-out-button-modal').on('click')
-  // $('.change-password-button-modal').on('click')
   $('.navbar-brand').html('<p>Your signin was successful!  Choose Game > then Create Game to play.</p>')
-  // $('.sign-out-button').show()
-  // $('.change-password-button').show()
-  // $('.sign-out-button').on('click')
-  // $('.change-password-button').show()
-  // $('.change-password-button').on('click')
-  // $('#change-password-button-modal').button('show')
-  //$('#sign-out-button').on('submit', gameEvents.onSignOut)
-  // // $('#change-password-button').show()
-  //$('#change-password-button').on('submit', gameEvents.onChangePassword)
-  // $('.sign-out-button').on('click', gameEvents.onSignOut)
-  // $('.change-password-button').on('click', gameEvents.onSignOut)
 }
 
 const signInFailure = (error) => {
@@ -66,11 +48,6 @@ const signOutSuccess = () => {
   $('#sign-out-modal').modal('hide')
   $('.first-buttons').removeClass('hiding')
   $('.logged-in-buttons').addClass('hiding')
-  // $('#sign-up').find('input:text, input:password, select, textarea').val('');
-  // $('#sign-up-button').show()
-  // $('#sign-in-button').show()
-  // $('.change-password-button').hide()
-  // $('.sign-out-button').hide()
   $('.navbar-brand').html('<p>Your signout was successful!</p>')
 }
 
@@ -92,7 +69,6 @@ const changePasswordSuccess = () => {
 const changePasswordFailure = (error) => {
   console.error('change-password failure ran.  error is: ', error)
   $('.navbar-brand').html('<p>Password change was successful!</p>')
-  //  $('#change-password-modal').modal('hide')
 }
 
 module.exports = {

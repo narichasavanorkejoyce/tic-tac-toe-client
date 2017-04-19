@@ -10,33 +10,8 @@ const createGame = function () {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // data is same as just plain data
   })
 }
-
-// const clearGame = (data) => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + data.game.token
-//     }
-//     // data: data is same as just plain data
-//   })
-// }
-
-// const makeMove = function (data) {
-//   console.log(data)
-//   console.log(store)
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
 
 const updateGame = function (data) {
   return $.ajax({
@@ -57,7 +32,6 @@ const totalGamesByUser = function (data) {
       Authorization: 'Token token=' + store.user.token
     },
     data
-     // data: data is same as just plain data
   })
 }
 
@@ -68,16 +42,12 @@ const displayOneGame = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-//    data
-     // data: data is same as just plain data
   })
 }
 
 module.exports = {
   createGame,
-  // clearGame,
   totalGamesByUser,
-  // makeMove,
   updateGame,
   displayOneGame
 }
