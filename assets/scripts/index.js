@@ -10,6 +10,18 @@ $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
   gameEvents.addHandlers()
+  $('.sign-out-button').hide()
+  $('.change-password-button').hide()
+  $('.0').off('click')
+  $('.1').off('click')
+  $('.2').off('click')
+  $('.3').off('click')
+  $('.4').off('click')
+  $('.5').off('click')
+  $('.6').off('click')
+  $('.7').off('click')
+  $('.8').off('click')
+  let currentPlayer = 'x'
 })
 
 // use require with a reference to bundle the file and use it in this file

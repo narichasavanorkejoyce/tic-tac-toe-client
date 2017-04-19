@@ -1,16 +1,15 @@
 'use strict'
 
 const store = require('../store')
-const gameEvents = require('../game/events.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
   console.log('sign up success ran.  data is : ', data)
   $('#sign-up-modal').modal('hide')
   $('.sign-up-button').hide()
-  // $('.sign-out-button').hide()
-  $('.navbar-brand').html('<p>You have successfully signed up</p>')
-  // $('.change-password-button').hide()
+  $('.sign-out-button').hide()
+  $('.navbar-brand').html('<p>You have successfully signed up! To play, sign in.</p>')
+  $('.change-password-button').hide()
   $('.display-one-game-button').hide()
   store.user = data.user
 }
@@ -30,7 +29,7 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
   $('.sign-up-button').hide()
   $('.sign-in-button').hide()
-  $('.navbar-brand').html('<p>Your signin was successful!</p>')
+  $('.navbar-brand').html('<p>Your signin was successful!  Choose Game-Create Game to play.</p>')
   // $('.sign-out-button').show()
   // $('#sign-out-modal').show()
   // $('#sign-out').on('submit', gameEvents.onSignOut)
