@@ -29,7 +29,7 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
   $('.sign-up-button').hide()
   $('.sign-in-button').hide()
-  $('.navbar-brand').html('<p>Your signin was successful!  Choose Game-Create Game to play.</p>')
+  $('.navbar-brand').html('<p>Your signin was successful!  Choose Game > then Create Game to play.</p>')
   // $('.sign-out-button').show()
   // $('#sign-out-modal').show()
   // $('#sign-out').on('submit', gameEvents.onSignOut)

@@ -11,7 +11,7 @@ let over = false
 
 const onCreateGame = function (event) {
   // event.preventDefault()
-  $('h1').html('tic-tac-toe. you have created a new game')
+  $('h1').html('tic-tac-toe.<br/>you have created a new game')
   currentPlayer = 'x'
   console.log('i clicked new game ')
   gameBoard = ['', '', '', '', '', '', '', '', '']
@@ -65,7 +65,7 @@ const onClickBoard = function (event) {
     console.log('the value is ', value)
     $(this).text('x')
     gameBoard[index] = 'x'
-    // $(this).off('click', onClickBoard)
+    $(this).off('click', onClickBoard)
     // gameBoard[index] = value
     let over = isOver(gameBoard, value)
     console.log('over equals ' + over)
@@ -92,7 +92,7 @@ const onClickBoard = function (event) {
     console.log('the value is ', value)
     console.log('player is ', currentPlayer)
     $(this).text('o')
-    // $(this).off('click', onClickBoard)
+    $(this).off('click', onClickBoard)
     gameBoard[index] = value
     let over = isOver(gameBoard, value)
     const data = {
@@ -122,7 +122,7 @@ const isOver = function (board, currentPlayer) {
   let over = false
   if ((gameBoard[0] === gameBoard[1]) && (gameBoard[1] === gameBoard[2]) && (gameBoard[2] === player)) {
     console.log('player ', player, ' won') // 1st row win
-    $('h1').html('<p>Game over.  Player ' + player + ' won. Clear Board then Choose Create Game to Play Again</p>')
+    $('h1').html('<p>Game over.  Player ' + player + ' won.<br/>Click Games > Clear Board then Choose Create Game to Play Again</p>')
     // onClearGame()
     $('.0').off('click')
     $('.1').off('click')
