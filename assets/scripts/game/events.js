@@ -4,14 +4,17 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
-const gameStore = require('../gameStore')
 
 let currentPlayer = 'x'
 let gameBoard = ['', '', '', '', '', '', '', '', '']
-
+let over = false
 
 const onCreateGame = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
+  $('h1').html('tic-tac-toe. you have created a new game')
+  currentPlayer = 'x'
+  console.log('i clicked new game ')
+  gameBoard = ['', '', '', '', '', '', '', '', '']
   $('.0').on('click', onClickBoard)
   $('.1').on('click', onClickBoard)
   $('.2').on('click', onClickBoard)
@@ -21,20 +24,9 @@ const onCreateGame = function (event) {
   $('.6').on('click', onClickBoard)
   $('.7').on('click', onClickBoard)
   $('.8').on('click', onClickBoard)
-  $('h1').html('tic-tac-toe. you have created a new game')
-  currentPlayer = 'x'
-  console.log('i clicked new game ')
-  gameBoard = ['', '', '', '', '', '', '', '', '']
-  let data = {}
-  api.createGame(data) // deleted this from argument: this.data
+  api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
-  // $("#element").click(function(){
-  // if ($('.boardpiece').data('clicked', true)) {
-  //   $('#id'),.border: #d04090)
-  // } else {
-  //   $('#id'), border: #4e4e4e)
-  // }
 }
 
 const onTotalGamesByUser = function (event) {
@@ -66,7 +58,8 @@ const onClickBoard = function (event) {
     gameBoard[index] = 'x'
     // $(this).off('click', onClickBoard)
     // gameBoard[index] = value
-    let over = isWin(gameBoard, value)
+    let over = isOver(gameBoard, value)
+    console.log('over equals ' + over)
     const data = {
       'game': {
         'cell': {
@@ -76,6 +69,7 @@ const onClickBoard = function (event) {
         'over': over
       }
     }
+    console.log(store)
     api.updateGame(data)
       .then(ui.updateGameSuccess)
     console.log('just played a(n) ', currentPlayer, ' in index ', index)
@@ -91,7 +85,7 @@ const onClickBoard = function (event) {
     $(this).text('o')
     // $(this).off('click', onClickBoard)
     gameBoard[index] = value
-    let over = isWin(gameBoard, value)
+    let over = isOver(gameBoard, value)
     const data = {
       'game': {
         'cell': {
@@ -107,36 +101,36 @@ const onClickBoard = function (event) {
     if (over) {
       console.log('Game Over')
     }
-    //hide board
+    // hide board
     currentPlayer = 'x'
   }
 //  $(this).unbind('click', onClickBoard)
   return currentPlayer
 }
 
-const isWin = function (board, currentPlayer) {
+const isOver = function (board, currentPlayer) {
   const gameBoard = board
   const player = currentPlayer
   let over = false
   if ((gameBoard[0] === gameBoard[1]) && (gameBoard[1] === gameBoard[2]) && (gameBoard[2] === player)) {
     console.log('player ', player, ' won') // 1st row win
-    $('h1').html('<p>Game over.  Player ' + player + ' won. Clear Board then Choose New Game to Play Again!</p>')
-    onClearGame()
-    $('.0').off('click', onClickBoard)
-    $('.1').off('click', onClickBoard)
-    $('.2').off('click', onClickBoard)
-    $('.3').off('click', onClickBoard)
-    $('.4').off('click', onClickBoard)
-    $('.5').off('click', onClickBoard)
-    $('.6').off('click', onClickBoard)
-    $('.7').off('click', onClickBoard)
-    $('.8').off('click', onClickBoard)
+    $('h1').html('<p>Game over.  Player ' + player + ' won. Clear Board then Choose New Game to Play Again</p>')
+    // onClearGame()
+    $('.0').off('click')
+    $('.1').off('click')
+    $('.2').off('click')
+    $('.3').off('click')
+    $('.4').off('click')
+    $('.5').off('click')
+    $('.6').off('click')
+    $('.7').off('click')
+    $('.8').off('click')
     return over
   } else if ((gameBoard[3] === gameBoard[4]) && (gameBoard[4] === gameBoard[5]) && (gameBoard[5] === player)) {
     console.log('player ', player, ' won') // 2nd row win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -151,7 +145,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // 3rd row win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -166,7 +160,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // 1st column win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -181,7 +175,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // 2nd column win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -196,7 +190,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // 3rd column win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -211,7 +205,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // L to R diagonal win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -226,7 +220,7 @@ const isWin = function (board, currentPlayer) {
     console.log('player ', player, ' won') // R to L diagonal win
     $('h1').html('<p>Game over.  Player ' + player + ' won.</p>')
     over = true
-    onClearGame()
+    // onClearGame()
     $('.0').off('click', onClickBoard)
     $('.1').off('click', onClickBoard)
     $('.2').off('click', onClickBoard)
@@ -278,21 +272,20 @@ const onClearGame = function (event) {
   $('.6').html('&nbsp;')
   $('.7').html('&nbsp;')
   $('.8').html('&nbsp;')
-  const data = {
-    'game': {
-      'cell': {
-        // 'index': +index,
-        // 'value': ' '
-      },
-      'over': false
-    }
-  }
-  api.clearGame(data)
+  // const data = {
+  //   'game': {
+  //     'cell': {
+  //       // 'index': +index,
+  //       // 'value': ' '
+  //     },
+  //     'over': false
+  //   }
+  // }
+  // api.clearGame(data)
 //  gameBoard = ['', '', '', '', '', '', '', '', '']
 }
 
 const addHandlers = () => {
-
   $('#createGame').on('click', onCreateGame)
   $('#clearBoard').on('click', onClearGame)
   $('.0').on('click', onClickBoard)
@@ -307,7 +300,6 @@ const addHandlers = () => {
   $('#totalGamesByUser').on('click', onTotalGamesByUser)
   $('#display-one-game-modal').on('click', onDispLayOneGame)
   $('.dropdown-games').on()
-
 }
 
 module.exports = {
