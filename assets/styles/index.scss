@@ -16,7 +16,7 @@ table {
 td {
   width: 15%;
   height: 15%;
-  border: 0px solid #546363;
+  border: 0px solid #d04090; //d04090#4e4e4e;
   border-right-width: 6px;
   border-bottom-width: 6px;
   text-align: center;
@@ -33,6 +33,10 @@ tr:last-child td {
   border-bottom-width: 0;
 }
 
+.hiding {
+  display:none;
+}
+
 $background-color: #4e4e4e;
 $font-color: 69bfea;
 $white: #fff;
@@ -41,6 +45,7 @@ $white: #fff;
   background-color: #69bfea;
   height:auto;
 }
+
 #bs-example-navbar-collapse-1 {
   background-color: #69bfea;
 }
@@ -82,12 +87,16 @@ body {
   width: 175px;
 }
 
-.btn btn-primary {
+.btn-primary {
   background-color: yellow;
+  color: #4e4e4e;
 }
 
 .boardpiece {
   height: 20px;
   width: 20px;
+}
 
+.caret {
+  color: bold;
 }

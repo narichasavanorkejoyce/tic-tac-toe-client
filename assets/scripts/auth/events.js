@@ -14,17 +14,18 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   console.log('sign in ran')
   console.log(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+//  $('#sign-up').button('hide')
 }
 
 const onSignOut = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
   console.log('sign out ran')
   api.signOut()
     .then(ui.signOutSuccess)
@@ -32,7 +33,7 @@ const onSignOut = function (event) {
 }
 
 const onChangePassword = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
   console.log('change password ran')
   const data = getFormFields(this)
   api.changePassword(data)
@@ -41,12 +42,23 @@ const onChangePassword = function (event) {
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('click', onSignUp)
-  $('#sign-in').on('click', onSignIn)
-  $('#sign-out').on('click', onSignOut)
-  $('#change-password').on('click', onChangePassword)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
 }
 
+// const displayAuthButtons = function (event) {
+//
+//   if (ui.onSignInSuccess) {
+//     $('sign-out-modal').display()
+//     $('change-password-modal').display()
+//     $('sign-up-modal').hide()
+//   }
+// }
+
 module.exports = {
-  addHandlers
+  addHandlers,
+  onSignOut,
+  onChangePassword
 }

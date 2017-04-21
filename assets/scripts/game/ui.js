@@ -5,8 +5,18 @@ const store = require('../store')
 const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
-  $('#createGame').modal('hide')
   store.game = data.game
+  // // if (store.user.token === null) {
+  // //   $('.0').off('click', onClickBoard)
+  // //   $('.1').off('click', onClickBoard)
+  // //   $('.2').off('click', onClickBoard)
+  // //   $('.3').off('click', onClickBoard)
+  // //   $('.4').off('click', onClickBoard)
+  // //   $('.5').off('click', onClickBoard)
+  // //   $('.6').off('click', onClickBoard)
+  // //   $('.7').off('click', onClickBoard)
+  // //   $('.8').off('click', onClickBoard)
+  // }
 }
 
 const createGameFailure = (error) => {
@@ -17,7 +27,6 @@ const clearGameSuccess = (data) => {
   console.log(data)
   console.log('game has been cleared')
   $('#clearGame').modal('hide')
-//  store.game = data.game
 }
 
 const clearGameFailure = (error) => {
@@ -30,7 +39,7 @@ const totalGamesSuccess = (data) => {
   const userGames = store.games.length
   const userGameArray = JSON.stringify(store.games)
   console.log(store.games.length, 'games have been retrieved')
-  $('h1').html('<p>User played' + userGames + ' games.  Wow.' + userGameArray + '</p>')
+  $('h1').html('<p>User played -->  ' + userGames + '  <-- games!<br/>' + userGameArray + '</p>')
   $('#totalGamesbyUser').modal('hide')
 }
 
@@ -57,7 +66,6 @@ const displayOneGameSuccess = () => {
 
 const displayOneGameFailure = (error) => {
   console.error('display-one-game-modal ran.  error is: ', error)
-//  $('#display-one-game-modal').modal('hide')
 }
 
 module.exports = {
