@@ -12,6 +12,7 @@ $(() => {
   gameEvents.addHandlers()
   // $('.sign-out-button').hide()
   // $('.change-password-button').hide()
+  // $('.dropdown-games').hide()
   $('.0').off('click')
   $('.1').off('click')
   $('.2').off('click')

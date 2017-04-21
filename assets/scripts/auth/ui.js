@@ -30,13 +30,15 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').modal('toggle')
   $('.first-buttons').addClass('hiding')
   $('.logged-in-buttons').removeClass('hiding')
-  $('.navbar-brand').html('<p>Your signin was successful!  Choose Game > then Create Game to play.</p>')
+  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
+  $('.navbar-brand').html('<p>Your signin was successful!  Choose Games > then Create Game to play.</p>')
 }
 
 const signInFailure = (error) => {
   console.error('signIn failure ran.  error is: ', error)
   $('#sign-out-button').hide()
   $('#change-password-button').hide()
+  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
   $('.navbar-brand').html('<p>Your signin was not successful!</p>')
 }
 
@@ -63,6 +65,7 @@ const changePasswordSuccess = () => {
   data.user = null
   console.log('store is: ', store)
   $('.navbar-brand').html('<p>Password change was successful!</p>')
+  $('#sign-in-modal').modal('toggle')
   store.user = data.user
 }
 
