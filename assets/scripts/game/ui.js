@@ -6,6 +6,7 @@ const createGameSuccess = (data) => {
   console.log(data)
   console.log('game has been created')
   store.game = data.game
+  $('.navbar-brand').html('<p>You are signed in and you created a game.</p>')
 }
 
 const createGameFailure = (error) => {

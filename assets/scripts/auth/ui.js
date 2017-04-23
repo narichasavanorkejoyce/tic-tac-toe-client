@@ -64,13 +64,8 @@ const changePasswordSuccess = () => {
   console.log('store is: ', store)
   // data.user = null
   console.log('store is: ', store)
-<<<<<<< HEAD
-  $('.navbar-brand').html('<p>Password change was successful! To play, sign in.</p>')
-  $('#sign-in-modal').modal('toggle')
-=======
   $('.navbar-brand').html('<p>Password change was successful!</p>')
   // $('#sign-in-modal').modal('toggle')
->>>>>>> resub2
   // store.user = data.user
 }
 
