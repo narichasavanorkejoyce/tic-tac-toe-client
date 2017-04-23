@@ -64,14 +64,19 @@ const changePasswordSuccess = () => {
   console.log('store is: ', store)
   // data.user = null
   console.log('store is: ', store)
+<<<<<<< HEAD
   $('.navbar-brand').html('<p>Password change was successful! To play, sign in.</p>')
   $('#sign-in-modal').modal('toggle')
+=======
+  $('.navbar-brand').html('<p>Password change was successful!</p>')
+  // $('#sign-in-modal').modal('toggle')
+>>>>>>> resub2
   // store.user = data.user
 }
 
 const changePasswordFailure = (error) => {
   console.error('change-password failure ran.  error is: ', error)
-  $('.navbar-brand').html('<p>Password change was not successful.  Try again</p>')
+  $('.navbar-brand').html('<p>Password change was not successful.  Try again.</p>')
 }
 
 module.exports = {
