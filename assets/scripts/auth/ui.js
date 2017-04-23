@@ -6,21 +6,20 @@ const gameEvents = require('./events')
 const signUpSuccess = (data) => {
   console.log(data)
   console.log('sign up success ran.  data is : ', data)
-  $('#sign-up-modal').modal('hide')
+  $('#sign-up-modal').modal('toggle')
   $('#sign-in-modal').modal('toggle')
   // $('.sign-up-button').hide()
   // $('.sign-out-button').hide()
   $('.navbar-brand').html('<p>You have successfully signed up! To play, sign in.</p>')
   // $('.change-password-button').hide()
-  $('.display-one-game-button').hide()
   store.user = data.user
 }
 
 const signUpFailure = (error) => {
   console.error(error)
-  $('.sign-out-button').hide()
+  // $('.sign-out-button').hide()
   $('.change-password-button').hide()
-  $('#change-password-button-modal').hide()
+  // $('#change-password-button-modal').hide()
   $('.navbar-brand').html('<p>Your signup was not successful! If email already used, try a new one.</p>')
 }
 
@@ -30,7 +29,7 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').modal('toggle')
   $('.first-buttons').addClass('hiding')
   $('.logged-in-buttons').removeClass('hiding')
-  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
+  // $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
   $('.navbar-brand').html('<p>Your signin was successful!  Choose Games > then Create Game to play.</p>')
 }
 
@@ -38,7 +37,7 @@ const signInFailure = (error) => {
   console.error('signIn failure ran.  error is: ', error)
   $('#sign-out-button').hide()
   $('#change-password-button').hide()
-  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
+  // $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
   $('.navbar-brand').html('<p>Your signin was not successful!</p>')
 }
 
@@ -51,6 +50,7 @@ const signOutSuccess = () => {
   $('.first-buttons').removeClass('hiding')
   $('.logged-in-buttons').addClass('hiding')
   $('.navbar-brand').html('<p>Your signout was successful!</p>')
+  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
 }
 
 const signOutFailure = (error) => {
@@ -71,7 +71,7 @@ const changePasswordSuccess = () => {
 
 const changePasswordFailure = (error) => {
   console.error('change-password failure ran.  error is: ', error)
-  $('.navbar-brand').html('<p>Password change was successful!</p>')
+  $('.navbar-brand').html('<p>Password change was not successful.  Try again</p>')
 }
 
 module.exports = {

@@ -44,15 +44,6 @@ const onTotalGamesByUser = function (event) {
     .catch(ui.totalGamesFailure)
 }
 
-const onDispLayOneGame = function (event) {
-  event.preventDefault()
-  console.log('display one game was clicked')
-  const data = getFormFields(data)
-  api.displayOneGame(data)
-    .then(ui.displayOneGameSuccess)
-    .catch(ui.displayOneGameFailure)
-}
-
 const onClickBoard = function (event) {
   const value = currentPlayer
   if (currentPlayer === 'x') {
@@ -318,7 +309,6 @@ const addHandlers = () => {
   $('.7').on('click', onClickBoard)
   $('.8').on('click', onClickBoard)
   $('#totalGamesByUser').on('click', onTotalGamesByUser)
-  $('#display-one-game-modal').on('click', onDispLayOneGame)
   $('.dropdown-games').on()
 }
 
