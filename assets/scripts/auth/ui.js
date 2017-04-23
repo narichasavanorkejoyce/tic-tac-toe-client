@@ -72,7 +72,7 @@ const changePasswordSuccess = () => {
   $('.navbar-brand').html('<p>Password change was successful!</p>')
   $('#change-password').toggle()
   // $('#change-password-modal').find('input:password[old], input:password[new], select, textarea').val('')
-  // store.user = data.user
+  store.user = data.user
 }
 
 const changePasswordFailure = (error) => {
