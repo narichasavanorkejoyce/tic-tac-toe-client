@@ -28,7 +28,7 @@ const totalGamesSuccess = (data) => {
   const userGames = store.games.length
   const userGameArray = JSON.stringify(store.games)
   console.log(userGames, 'games have been retrieved')
-  $('h1').html('<p>User played -->  ' + userGames + ' games.  <br/>Here are your games: <br/>' + userGameArray + '</p>')
+  $('h1').html('<p>User played ' + userGames + ' game(s).')
   $('#totalGamesByUser').modal('hide')
 }
 

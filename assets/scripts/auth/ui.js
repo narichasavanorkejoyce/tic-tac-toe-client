@@ -62,11 +62,11 @@ const signOutFailure = (error) => {
 const changePasswordSuccess = () => {
   console.log('change-password success ran.  and nothing was returned')
   console.log('store is: ', store)
-  data.user = null
+  // data.user = null
   console.log('store is: ', store)
   $('.navbar-brand').html('<p>Password change was successful! To play, sign in.</p>')
   $('#sign-in-modal').modal('toggle')
-  store.user = data.user
+  // store.user = data.user
 }
 
 const changePasswordFailure = (error) => {
