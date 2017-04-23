@@ -35,19 +35,8 @@ const totalGamesByUser = function (data) {
   })
 }
 
-const displayOneGame = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/games/:id',  //  store.game.id
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 module.exports = {
   createGame,
   totalGamesByUser,
-  updateGame,
-  displayOneGame
+  updateGame
 }

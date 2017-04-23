@@ -48,15 +48,6 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
 }
 
-// const displayAuthButtons = function (event) {
-//
-//   if (ui.onSignInSuccess) {
-//     $('sign-out-modal').display()
-//     $('change-password-modal').display()
-//     $('sign-up-modal').hide()
-//   }
-// }
-
 module.exports = {
   addHandlers,
   onSignOut,
