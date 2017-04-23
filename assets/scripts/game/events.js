@@ -16,10 +16,10 @@ const onCreateGame = function (event) {
   // event.preventDefault()
   $('h1').html('tic-tac-toe.<br/>you have created a new game')
   currentPlayer = 'x'
-  let gameWinner = false
-  let numberMoves = 0
+  gameWinner = false
+  numberMoves = 0
   gameBoard = ['', '', '', '', '', '', '', '', '']
-  let over = false
+  over = false
   $('.0').on('click', onClickBoard)
   $('.1').on('click', onClickBoard)
   $('.2').on('click', onClickBoard)
@@ -31,7 +31,7 @@ const onCreateGame = function (event) {
   $('.8').on('click', onClickBoard)
   api.createGame()
       .then(ui.createGameSuccess)
-  currentPlayer = 'x'
+  // currentPlayer = 'x'
       .catch(ui.createGameFailure)
 }
 
@@ -64,7 +64,7 @@ const onClickBoard = function (event) {
     gameBoard[index] = 'x'
     $(this).off('click', onClickBoard)
     // gameBoard[index] = value
-    let over = isOver(gameBoard, value)
+    over = isOver(gameBoard, value)
     console.log('over equals ' + over)
     const data = {
       'game': {
@@ -92,7 +92,7 @@ const onClickBoard = function (event) {
     $(this).text('o')
     $(this).off('click', onClickBoard)
     gameBoard[index] = value
-    let over = isOver(gameBoard, value)
+    over = isOver(gameBoard, value)
     const data = {
       'game': {
         'cell': {
@@ -116,9 +116,9 @@ const onClickBoard = function (event) {
 }
 
 const isOver = function (board, currentPlayer) {
-  const gameBoard = board
-  const player = currentPlayer
-  let over = false
+  gameBoard = board
+  let player = currentPlayer
+  over = false
   if ((gameBoard[0] === gameBoard[1]) && (gameBoard[1] === gameBoard[2]) && (gameBoard[2] === player)) {
     console.log('player ', player, ' won') // 1st row win
     $('h1').html('<p>Game over.  Player ' + player + ' won.<br/>Click Games > Clear Board then Choose Create Game to Play Again</p>')
@@ -262,21 +262,6 @@ const isOver = function (board, currentPlayer) {
     console.log(gameWinner)
     // onClearGame()
     return over
-  // } else if (((gameBoard['o'] === 'x') || (gameBoard['o'] === 'o')) && ((gameBoard[1] === 'x') || (gameBoard[1] === 'o')) && ((gameBoard[2] === 'x') || (gameBoard[2] === 'o')) && ((gameBoard[3] === 'x') || (gameBoard[3] === 'o')) && ((gameBoard[4] === 'x') || (gameBoard[4] === 'o')) && ((gameBoard[5] === 'x') || (gameBoard[5] === 'o')) && ((gameBoard[6] === 'x') || (gameBoard[6] === 'o')) && ((gameBoard[7] === 'x') || (gameBoard[7] === 'o')) && ((gameBoard[8] === 'x') || (gameBoard[8] === 'o'))) {
-  //   console.log('Nobody won! Ending is a cat like Meow!')
-  //   $('h1').html('<p>Game over.  Nobody won.  End is a CAT (like meow).  Clear Board then Choose Create Game to Play Again</p>')
-  //   over = true
-  //   $('.0').off('click', onClickBoard)
-  //   $('.1').off('click', onClickBoard)
-  //   $('.2').off('click', onClickBoard)
-  //   $('.3').off('click', onClickBoard)
-  //   $('.4').off('click', onClickBoard)
-  //   $('.5').off('click', onClickBoard)
-  //   $('.6').off('click', onClickBoard)
-  //   $('.7').off('click', onClickBoard)
-  //   $('.8').off('click', onClickBoard)
-  //   onClearGame()
-  //   return over
   } else if ((numberMoves === 8) && (over === false)) {
     console.log('player ', player, ' won')
     console.log('numberMoves: ', numberMoves)
@@ -295,9 +280,9 @@ const onClearGame = function (event) {
 //  event.preventDefault()
   console.log('clearBoard started')
   currentPlayer = 'x'
-  let gameWinner = false
-  let numberMoves = 0
-  let over = false
+  gameWinner = false
+  numberMoves = 0
+  over = false
   gameBoard = ['', '', '', '', '', '', '', '', '']
   $('.0').html('&nbsp;')
   $('.1').html('&nbsp;')
@@ -341,6 +326,5 @@ module.exports = {
   addHandlers,
   onClickBoard,
   onClearGame,
-  onTotalGamesByUser,
-  onDispLayOneGame
+  onTotalGamesByUser
 }
