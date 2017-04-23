@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>tic-tac-toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+    <h1>tic-tac-toe</h1>
+    <p class="displayWinner"> </p>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> -->
+              <!-- <span class="sr-only">Toggle navigation</span> -->
+              <!-- <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> -->
+            </button>
+                <a class="navbar-brand" >You will need to sign-in to play.  Please sign-up/sign-in. </a>
+            </div>
+            <ul class="nav navbar-nav navbar-right logged-in-buttons hiding">
+                <li class="Games logged-in-buttons hiding">
+                    <a href="#" class="dropdown-games logged-in-buttons hiding" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="createGame">Create Game</a></li>
+                        <li><a href="#" id="clearBoard">Clear Board</a></li>
+                        <li><a href="#" id="totalGamesByUser">Total Games By User</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Large modal for sign-up -->
+    <button type="submit" class="btn btn-primary sign-up-button first-buttons" data-toggle="modal" data-target="#sign-up-modal" >Sign Up</button>
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-up' id="sign-up">
+                    <fieldset>
+                        <input type="text" name="credentials[email]" id="sign-up-email" placeholder="Email username">
+                        <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Enter Your Password">
+                        <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm password">
+                        <input type="submit" id="sign-up-modal" name="submit" value="Sign up!">
+                        <p>Accessing an authenticated API.</p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for sign-in -->
+    <button type="submit" class="btn btn-primary sign-in-button first-buttons" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-in' id="sign-in">
+                    <fieldset>
+                        <input type="text" name="credentials[email]" id="sign-in-email" placeholder="Email username">
+                        <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Enter Your Password">
+                        <input type="submit" id="sign-in-modal" name="submit" value="Sign In!">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for sign-out -->
+    <button type="submit" class="btn btn-primary sign-out-button logged-in-buttons hiding" data-toggle="modal" data-target="#sign-out-modal">Sign Out</button>
+    <div class="modal fade sign-out-button" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='sign-out' id="sign-out">
+                    <fieldset>
+                        <input type="submit" id="sign-out-modal" name="submit" value="Sign out!">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal for change password -->
+    <button type="button" class="btn btn-primary change-password-button logged-in-buttons hiding" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form class='change-password' id="change-password">
+                    <fieldset>
+                      <input type="password" name="passwords[old]" id="change-password-old" placeholder="old Password">
+                      <input type="password" name="passwords[new]" id="change-password-new" placeholder="new Password">
+                      <input type="submit" id="change-password-modal" name="submit" value="Change password!">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+      <table>
+       <tr>
+         <td class='0'><div class=‘boardpiece’ id=‘0’>&nbsp;</div></td>
+         <td class='1'><div class=‘boardpiece’ id=‘1’>&nbsp;</div></td>
+         <td class='2'><div class=‘boardpiece’ id=‘2’>&nbsp;</div></td>
+       </tr>
+       <tr>
+         <td class='3'><div class=‘boardpiece’ id=‘3’>&nbsp;</div></td>
+         <td class='4'><div class=‘boardpiece’ id=‘4’>&nbsp;</div></td>
+         <td class='5'><div class=‘boardpiece’ id=‘5’>&nbsp;</div></td>
+       </tr>
+       <tr>
+         <td class='6'><div class=‘boardpiece’ id=‘6’>&nbsp;</div></td>
+         <td class='7'><div class=‘boardpiece’ id=‘7’>&nbsp;</div></td>
+         <td class='8'><div class=‘boardpiece’ id=‘8’>&nbsp;</div></td>
+       </tr>
+     </table>
+</body>
+
+</html>
