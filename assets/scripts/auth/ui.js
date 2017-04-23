@@ -65,7 +65,7 @@ const changePasswordSuccess = () => {
   // data.user = null
   console.log('store is: ', store)
   $('.navbar-brand').html('<p>Password change was successful!</p>')
-  // $('#sign-in-modal').modal('toggle')
+  $('#change-password').toggle()
   // store.user = data.user
 }
 
