@@ -21,6 +21,7 @@ const signUpFailure = (error) => {
   $('.change-password-button').hide()
   // $('#change-password-button-modal').hide()
   $('.navbar-brand').html('<p>Your signup was not successful! If email already used, try a new one.</p>')
+  $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
 }
 
 const signInSuccess = (data) => {
@@ -46,7 +47,7 @@ const signOutSuccess = () => {
   console.log('store is: ', store)
   store.user = null
   console.log('store is: ', store)
-  $('#sign-out-modal').modal('hide')
+  $('#sign-out-modal').modal('toggle')
   $('.first-buttons').removeClass('hiding')
   $('.logged-in-buttons').addClass('hiding')
   $('.navbar-brand').html('<p>Your signout was successful!</p>')
@@ -64,14 +65,16 @@ const changePasswordSuccess = () => {
   console.log('store is: ', store)
   // data.user = null
   console.log('store is: ', store)
-  $('.navbar-brand').html('<p>Password change was successful!</p>')
-  $('#change-password').toggle()
+  $('.navbar-brand').html('<p>You changed your password.  To play, please sign in with your new password.</p>')
+  // $('#change-password').toggle()
+  // $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
   // store.user = data.user
 }
 
 const changePasswordFailure = (error) => {
   console.error('change-password failure ran.  error is: ', error)
   $('.navbar-brand').html('<p>Password change was not successful.  Try again.</p>')
+  // $('#sign-in-modal').find('input:text, input:password, select, textarea').val('')
 }
 
 module.exports = {
